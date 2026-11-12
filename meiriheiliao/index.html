@@ -1,0 +1,1702 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>每日黑料r星 - 游戏圈内幕与争议聚合</title>
+  <meta name="description" content="每日黑料r星聚焦游戏圈内幕与争议，提供R星工作室传闻、GTA6开发风波、员工爆料、玩家评论、相关资讯与深度解析，适合关注游戏行业动态的玩家阅读。">
+  <meta name="keywords" content="每日黑料r星">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --color-primary: #b83b3b;
+      --color-primary-light: #d96b6b;
+      --color-primary-dark: #8a2626;
+      --color-bg: #f5f1ee;
+      --color-panel: #ffffff;
+      --color-text-primary: #1e1b1a;
+      --color-text-secondary: #5a5450;
+      --color-text-tertiary: #8a837e;
+      --color-border: #e3ddd8;
+      --color-divider: #efe9e4;
+      --radius-card: 12px;
+      --radius-button: 8px;
+      --radius-tag: 6px;
+      --radius-banner: 16px;
+      --shadow-default: 0 2px 8px rgba(0,0,0,0.04);
+      --shadow-hover: 0 8px 20px rgba(0,0,0,0.08);
+      --font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      --max-width: 1360px;
+      --header-height: 64px;
+      --announce-height: 40px;
+      --sticky-total: calc(var(--header-height) + var(--announce-height));
+    }
+
+    body {
+      font-family: var(--font-family);
+      background: var(--color-bg);
+      color: var(--color-text-primary);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      padding-top: var(--sticky-total);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+
+    /* 吸顶公告条 */
+    .announce-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: var(--announce-height);
+      background: var(--color-primary-dark);
+      color: #fff;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      z-index: 100;
+      padding: 0 24px;
+      gap: 24px;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+
+    .announce-bar .brand-mark {
+      font-weight: 700;
+      color: #ffe0b3;
+      letter-spacing: 0.5px;
+    }
+
+    .announce-bar .announce-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .announce-bar .announce-item .date {
+      color: #f0c9a8;
+      font-weight: 500;
+    }
+
+    .announce-bar .announce-item .sep {
+      opacity: 0.5;
+      margin: 0 2px;
+    }
+
+    /* 吸顶页头 */
+    .site-header {
+      position: fixed;
+      top: var(--announce-height);
+      left: 0;
+      right: 0;
+      height: var(--header-height);
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--color-border);
+      z-index: 99;
+      display: flex;
+      align-items: center;
+      padding: 0 24px;
+    }
+
+    .header-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+
+    .logo svg {
+      width: 32px;
+      height: 32px;
+    }
+
+    .logo .brand-text {
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      color: var(--color-primary-dark);
+    }
+
+    .main-nav {
+      display: flex;
+      gap: 20px;
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--color-text-secondary);
+      overflow-x: auto;
+    }
+
+    .main-nav a {
+      padding: 4px 0;
+      border-bottom: 2px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
+      white-space: nowrap;
+    }
+
+    .main-nav a:hover {
+      color: var(--color-primary);
+      border-bottom-color: var(--color-primary);
+    }
+
+    .header-actions {
+      margin-left: auto;
+      display: flex;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .search-box {
+      display: flex;
+      align-items: center;
+      background: var(--color-bg);
+      border-radius: 20px;
+      padding: 6px 12px;
+      gap: 6px;
+      border: 1px solid var(--color-border);
+    }
+
+    .search-box input {
+      border: none;
+      background: transparent;
+      font-size: 14px;
+      width: 160px;
+      outline: none;
+      font-family: inherit;
+      color: var(--color-text-primary);
+    }
+
+    .search-box input::placeholder {
+      color: var(--color-text-tertiary);
+    }
+
+    .search-box button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--color-text-tertiary);
+      display: flex;
+      align-items: center;
+      padding: 2px;
+    }
+
+    .search-box button:hover {
+      color: var(--color-primary);
+    }
+
+    .search-feedback {
+      font-size: 13px;
+      color: var(--color-text-tertiary);
+      margin-left: 8px;
+      display: none;
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+      color: var(--color-text-primary);
+      padding: 4px;
+    }
+
+    /* 主布局 */
+    .page-container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 24px 24px 48px;
+      display: grid;
+      grid-template-columns: 180px 1fr 260px;
+      gap: 28px;
+      align-items: start;
+    }
+
+    /* 左侧频道索引 */
+    .channel-sidebar {
+      position: sticky;
+      top: calc(var(--sticky-total) + 16px);
+      background: var(--color-panel);
+      border-radius: var(--radius-card);
+      padding: 16px 0;
+      box-shadow: var(--shadow-default);
+      border: 1px solid var(--color-border);
+    }
+
+    .channel-sidebar h3 {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--color-text-tertiary);
+      padding: 0 16px 10px;
+      font-weight: 600;
+    }
+
+    .channel-sidebar nav {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .channel-sidebar nav a {
+      padding: 8px 16px;
+      font-size: 14px;
+      color: var(--color-text-secondary);
+      transition: background 0.15s, color 0.15s;
+      border-left: 3px solid transparent;
+    }
+
+    .channel-sidebar nav a:hover,
+    .channel-sidebar nav a.active {
+      background: var(--color-bg);
+      color: var(--color-primary-dark);
+      border-left-color: var(--color-primary);
+      font-weight: 500;
+    }
+
+    /* 主内容区 */
+    .main-content {
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    /* 首屏 */
+    .hero {
+      background: linear-gradient(135deg, #2c1e1a 0%, #4a2e28 60%, #6b3a32 100%);
+      border-radius: var(--radius-banner);
+      padding: 48px 40px;
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-default);
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      right: -30px;
+      bottom: -50px;
+      width: 260px;
+      height: 260px;
+      background: radial-gradient(circle, rgba(255,200,150,0.15) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 600px;
+    }
+
+    .hero h1 {
+      font-size: 40px;
+      font-weight: 800;
+      letter-spacing: -1px;
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+
+    .hero .hero-desc {
+      font-size: 16px;
+      line-height: 1.7;
+      color: #f0d9cc;
+      margin-bottom: 24px;
+    }
+
+    .hero-entries {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .hero-entries a {
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.2);
+      padding: 8px 20px;
+      border-radius: 30px;
+      font-size: 14px;
+      font-weight: 500;
+      transition: background 0.2s;
+    }
+
+    .hero-entries a:hover {
+      background: rgba(255,255,255,0.22);
+    }
+
+    .hero-entries a.primary-entry {
+      background: var(--color-primary);
+      border-color: var(--color-primary);
+    }
+
+    .hero-entries a.primary-entry:hover {
+      background: var(--color-primary-light);
+    }
+
+    /* 通用板块 */
+    .section {
+      background: var(--color-panel);
+      border-radius: var(--radius-card);
+      padding: 24px;
+      box-shadow: var(--shadow-default);
+      border: 1px solid var(--color-border);
+    }
+
+    .section-title {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 18px;
+      color: var(--color-text-primary);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-title::before {
+      content: '';
+      width: 4px;
+      height: 20px;
+      background: var(--color-primary);
+      border-radius: 2px;
+    }
+
+    /* 概览 */
+    .overview-text {
+      font-size: 15px;
+      color: var(--color-text-secondary);
+      line-height: 1.8;
+    }
+
+    .overview-text p {
+      margin-bottom: 12px;
+    }
+
+    .overview-text strong {
+      color: var(--color-text-primary);
+    }
+
+    /* 卡片网格 */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      background: var(--color-bg);
+      border-radius: var(--radius-card);
+      overflow: hidden;
+      border: 1px solid var(--color-border);
+      transition: transform 0.2s, box-shadow 0.2s;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .card img {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+    }
+
+    .card-body {
+      padding: 14px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+
+    .tag {
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: var(--radius-tag);
+      background: #fff;
+      color: var(--color-text-tertiary);
+      border: 1px solid var(--color-border);
+    }
+
+    .tag.primary {
+      background: var(--color-primary-light);
+      color: #fff;
+      border-color: transparent;
+    }
+
+    .card-title {
+      font-size: 15px;
+      font-weight: 600;
+      line-height: 1.4;
+      color: var(--color-text-primary);
+    }
+
+    .card-desc {
+      font-size: 13px;
+      color: var(--color-text-secondary);
+      line-height: 1.5;
+      flex: 1;
+    }
+
+    .card-meta {
+      font-size: 12px;
+      color: var(--color-text-tertiary);
+      display: flex;
+      gap: 12px;
+    }
+
+    /* 紧凑列表 */
+    .compact-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .compact-item {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--color-divider);
+      font-size: 14px;
+    }
+
+    .compact-item:last-child {
+      border-bottom: none;
+    }
+
+    .compact-item .item-title {
+      font-weight: 500;
+      color: var(--color-text-primary);
+      flex-shrink: 0;
+    }
+
+    .compact-item .item-summary {
+      color: var(--color-text-secondary);
+      font-size: 13px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .compact-item .item-date {
+      margin-left: auto;
+      font-size: 12px;
+      color: var(--color-text-tertiary);
+      flex-shrink: 0;
+    }
+
+    /* 分类入口 */
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+
+    .category-item {
+      text-align: center;
+      padding: 14px 8px;
+      background: var(--color-bg);
+      border-radius: var(--radius-button);
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--color-text-secondary);
+      transition: background 0.2s, color 0.2s;
+      border: 1px solid var(--color-border);
+    }
+
+    .category-item:hover {
+      background: var(--color-primary);
+      color: #fff;
+      border-color: var(--color-primary);
+    }
+
+    /* 深度解析 */
+    .deep-dive {
+      font-size: 15px;
+      color: var(--color-text-secondary);
+      line-height: 1.8;
+    }
+
+    .deep-dive h3 {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--color-text-primary);
+      margin: 20px 0 8px;
+    }
+
+    .deep-dive h3:first-of-type {
+      margin-top: 0;
+    }
+
+    .deep-dive p {
+      margin-bottom: 12px;
+    }
+
+    .deep-dive ul {
+      list-style: disc;
+      padding-left: 20px;
+      margin-bottom: 12px;
+    }
+
+    .deep-dive li {
+      margin-bottom: 6px;
+    }
+
+    .deep-dive .highlight-box {
+      background: var(--color-bg);
+      border-left: 3px solid var(--color-primary);
+      padding: 14px 18px;
+      border-radius: 0 var(--radius-button) var(--radius-button) 0;
+      margin: 16px 0;
+      font-size: 14px;
+    }
+
+    /* FAQ */
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .faq-item {
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-button);
+      overflow: hidden;
+    }
+
+    .faq-item summary {
+      padding: 12px 16px;
+      font-size: 15px;
+      font-weight: 500;
+      cursor: pointer;
+      background: var(--color-bg);
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .faq-item summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .faq-item summary::after {
+      content: '+';
+      font-size: 20px;
+      color: var(--color-text-tertiary);
+      transition: transform 0.2s;
+    }
+
+    .faq-item[open] summary::after {
+      content: '−';
+    }
+
+    .faq-item .faq-answer {
+      padding: 14px 16px;
+      font-size: 14px;
+      color: var(--color-text-secondary);
+      line-height: 1.7;
+      border-top: 1px solid var(--color-border);
+      background: #fff;
+    }
+
+    /* 评论 */
+    .comment-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 12px;
+    }
+
+    .comment-card {
+      background: var(--color-bg);
+      border-radius: var(--radius-button);
+      padding: 12px 14px;
+      border: 1px solid var(--color-border);
+    }
+
+    .comment-header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 6px;
+      font-size: 13px;
+    }
+
+    .comment-nickname {
+      font-weight: 600;
+      color: var(--color-primary-dark);
+    }
+
+    .comment-time {
+      color: var(--color-text-tertiary);
+    }
+
+    .comment-text {
+      font-size: 14px;
+      color: var(--color-text-secondary);
+      line-height: 1.6;
+    }
+
+    /* 资讯列表 */
+    .news-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .news-item {
+      display: flex;
+      gap: 14px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--color-divider);
+    }
+
+    .news-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .news-date {
+      font-size: 13px;
+      color: var(--color-text-tertiary);
+      flex-shrink: 0;
+      width: 80px;
+      font-weight: 500;
+    }
+
+    .news-content {
+      flex: 1;
+    }
+
+    .news-title {
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .news-summary {
+      font-size: 13px;
+      color: var(--color-text-secondary);
+      line-height: 1.5;
+    }
+
+    /* 推荐标签 */
+    .recommend-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .recommend-tag {
+      display: inline-block;
+      padding: 6px 14px;
+      background: var(--color-bg);
+      border-radius: 20px;
+      font-size: 13px;
+      color: var(--color-text-secondary);
+      border: 1px solid var(--color-border);
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .recommend-tag:hover {
+      background: var(--color-primary);
+      color: #fff;
+      border-color: var(--color-primary);
+    }
+
+    /* 右侧辅助栏 */
+    .right-sidebar {
+      position: sticky;
+      top: calc(var(--sticky-total) + 16px);
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .sidebar-card {
+      background: var(--color-panel);
+      border-radius: var(--radius-card);
+      padding: 18px;
+      box-shadow: var(--shadow-default);
+      border: 1px solid var(--color-border);
+    }
+
+    .sidebar-card h3 {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 14px;
+      color: var(--color-text-primary);
+    }
+
+    .rank-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .rank-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+    }
+
+    .rank-number {
+      width: 22px;
+      height: 22px;
+      border-radius: 6px;
+      background: var(--color-bg);
+      color: var(--color-text-tertiary);
+      font-size: 12px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .rank-item:nth-child(1) .rank-number {
+      background: var(--color-primary);
+      color: #fff;
+    }
+
+    .rank-item:nth-child(2) .rank-number {
+      background: var(--color-primary-light);
+      color: #fff;
+    }
+
+    .rank-item:nth-child(3) .rank-number {
+      background: #f0c9a8;
+      color: #6b3a32;
+    }
+
+    .rank-title {
+      flex: 1;
+      font-weight: 500;
+      color: var(--color-text-secondary);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .rank-score {
+      font-size: 12px;
+      color: var(--color-text-tertiary);
+    }
+
+    /* 投稿入口 */
+    .contribute-box {
+      background: linear-gradient(135deg, #f8ede8, #f5e3dc);
+      border-radius: var(--radius-card);
+      padding: 18px;
+      text-align: center;
+      border: 1px solid #e8d5cc;
+    }
+
+    .contribute-box p {
+      font-size: 13px;
+      color: var(--color-text-secondary);
+      margin-bottom: 12px;
+    }
+
+    .contribute-box a {
+      display: inline-block;
+      background: var(--color-primary);
+      color: #fff;
+      padding: 8px 24px;
+      border-radius: 30px;
+      font-size: 14px;
+      font-weight: 500;
+      transition: background 0.2s;
+    }
+
+    .contribute-box a:hover {
+      background: var(--color-primary-dark);
+    }
+
+    /* 页尾 */
+    .site-footer {
+      background: #1e1b1a;
+      color: #b0a8a2;
+      padding: 40px 24px 24px;
+      margin-top: 32px;
+    }
+
+    .footer-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 32px;
+      margin-bottom: 32px;
+    }
+
+    .footer-brand .brand-text {
+      font-size: 20px;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+
+    .footer-brand p {
+      font-size: 13px;
+      line-height: 1.6;
+      color: #8a837e;
+    }
+
+    .footer-col h4 {
+      font-size: 14px;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 12px;
+    }
+
+    .footer-col a {
+      display: block;
+      font-size: 13px;
+      color: #8a837e;
+      padding: 3px 0;
+      transition: color 0.2s;
+    }
+
+    .footer-col a:hover {
+      color: #fff;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid #332e2b;
+      padding-top: 20px;
+      font-size: 12px;
+      color: #5a5450;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    /* 回到顶部 */
+    .back-to-top {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--color-primary);
+      color: #fff;
+      border: none;
+      font-size: 20px;
+      cursor: pointer;
+      box-shadow: var(--shadow-default);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 90;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .back-to-top:hover {
+      background: var(--color-primary-dark);
+      transform: translateY(-2px);
+    }
+
+    .back-to-top.visible {
+      display: flex;
+    }
+
+    /* 遮罩 */
+    .overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.4);
+      z-index: 98;
+    }
+
+    .overlay.active {
+      display: block;
+    }
+
+    /* 响应式 */
+    @media (max-width: 1024px) {
+      .page-container {
+        grid-template-columns: 1fr 260px;
+      }
+      .channel-sidebar {
+        display: none;
+      }
+      .main-nav {
+        display: none;
+      }
+      .mobile-menu-btn {
+        display: block;
+      }
+      .search-box input {
+        width: 120px;
+      }
+    }
+
+    @media (max-width: 740px) {
+      .page-container {
+        grid-template-columns: 1fr;
+        padding: 16px;
+      }
+      .right-sidebar {
+        position: static;
+      }
+      .hero {
+        padding: 32px 24px;
+      }
+      .hero h1 {
+        font-size: 28px;
+      }
+      .category-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .footer-top {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+      .search-box {
+        display: none;
+      }
+      .header-actions .search-box {
+        display: none;
+      }
+      .compact-item {
+        flex-wrap: wrap;
+      }
+      .compact-item .item-summary {
+        white-space: normal;
+        width: 100%;
+        margin-left: 0;
+      }
+      .news-item {
+        flex-direction: column;
+        gap: 4px;
+      }
+      .news-date {
+        width: auto;
+      }
+      .comment-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation: none !important;
+        transition: none !important;
+      }
+    }
+
+    /* 锚点偏移 */
+    [id] {
+      scroll-margin-top: calc(var(--sticky-total) + 16px);
+    }
+
+    /* 移动端菜单 */
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      top: var(--sticky-total);
+      left: 0;
+      right: 0;
+      background: #fff;
+      padding: 16px;
+      z-index: 97;
+      border-bottom: 1px solid var(--color-border);
+      max-height: 70vh;
+      overflow-y: auto;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .mobile-nav.active {
+      display: flex;
+    }
+
+    .mobile-nav a {
+      padding: 10px 12px;
+      font-size: 15px;
+      border-radius: var(--radius-button);
+      color: var(--color-text-secondary);
+    }
+
+    .mobile-nav a:hover {
+      background: var(--color-bg);
+    }
+
+    .search-feedback-msg {
+      font-size: 13px;
+      color: var(--color-primary);
+      padding: 8px 0;
+    }
+  </style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+  <!-- 吸顶公告条 -->
+  <div class="announce-bar" role="banner">
+    <span class="brand-mark">每日黑料r星</span>
+    <span class="announce-item"><span class="date">11月7日</span><span class="sep">·</span>R星内部邮件泄露，GTA6测试进度曝光</span>
+    <span class="announce-item"><span class="date">11月5日</span><span class="sep">·</span>前R星美术总监谈《恶霸鲁尼2》取消内幕</span>
+    <span class="announce-item"><span class="date">11月3日</span><span class="sep">·</span>GTA三部曲决定版再遭差评轰炸，好评率跌至19%</span>
+  </div>
+
+  <!-- 吸顶页头 -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="/" class="logo" aria-label="每日黑料r星首页">
+        <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect x="2" y="6" width="28" height="20" rx="4" fill="#8a2626"/>
+          <circle cx="16" cy="16" r="5" fill="#f5e3dc"/>
+          <circle cx="16" cy="16" r="2.5" fill="#8a2626"/>
+          <path d="M8 6V4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v2" stroke="#d96b6b" stroke-width="1.5"/>
+        </svg>
+        <span class="brand-text">每日黑料r星</span>
+      </a>
+      <nav class="main-nav" aria-label="主导航">
+        <a href="/#gta6-leaks">GTA6爆料</a>
+        <a href="/#studio-drama">工作室风波</a>
+        <a href="/#employee-voices">员工爆料</a>
+        <a href="/#player-reactions">玩家反应</a>
+        <a href="/#industry-analysis">行业解析</a>
+        <a href="/#faq">常见问答</a>
+        <a href="/#submit-tip">投稿入口</a>
+      </nav>
+      <div class="header-actions">
+        <div class="search-box">
+          <input type="text" id="searchInput" placeholder="搜索黑料条目…" aria-label="搜索站内条目">
+          <button id="searchBtn" aria-label="搜索">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          </button>
+        </div>
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="打开菜单" aria-expanded="false">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- 移动端导航 -->
+  <nav class="mobile-nav" id="mobileNav" aria-label="移动端导航">
+    <a href="/#gta6-leaks">GTA6爆料</a>
+    <a href="/#studio-drama">工作室风波</a>
+    <a href="/#employee-voices">员工爆料</a>
+    <a href="/#player-reactions">玩家反应</a>
+    <a href="/#industry-analysis">行业解析</a>
+    <a href="/#faq">常见问答</a>
+    <a href="/#submit-tip">投稿入口</a>
+  </nav>
+  <div class="overlay" id="overlay"></div>
+
+  <!-- 页面主体 -->
+  <div class="page-container">
+
+    <!-- 左侧频道索引 -->
+    <aside class="channel-sidebar" aria-label="频道索引">
+      <h3>频道索引</h3>
+      <nav>
+        <a href="/#gta6-leaks" class="active">GTA6爆料</a>
+        <a href="/#studio-drama">工作室风波</a>
+        <a href="/#employee-voices">员工爆料</a>
+        <a href="/#player-reactions">玩家反应</a>
+        <a href="/#industry-analysis">行业解析</a>
+        <a href="/#content-picks">精选内容</a>
+        <a href="/#latest-updates">最新动态</a>
+        <a href="/#faq">常见问答</a>
+        <a href="/#community-comments">社区评论</a>
+        <a href="/#news-briefs">相关资讯</a>
+        <a href="/#recommend-tags">相关推荐</a>
+        <a href="/#submit-tip">投稿入口</a>
+      </nav>
+    </aside>
+
+    <!-- 主内容区 -->
+    <main class="main-content">
+
+      <!-- 首屏 -->
+      <section class="hero" aria-labelledby="heroTitle">
+        <div class="hero-content">
+          <h1 id="heroTitle">每日黑料r星</h1>
+          <p class="hero-desc">追踪R星工作室的未公开项目、开发风波与员工爆料，汇集GTA6测试进度、裁员内幕、前员工访谈与玩家社区的最新反应。从已确认的官方公告到未经证实的论坛传闻，按可信度分层呈现。</p>
+          <div class="hero-entries">
+            <a href="/#gta6-leaks" class="primary-entry">GTA6 最新爆料</a>
+            <a href="/#employee-voices">员工匿名访谈</a>
+            <a href="/#industry-analysis">深度解析</a>
+            <a href="/#submit-tip">提供线索</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- 主题领域概览 -->
+      <section class="section" id="overview" aria-labelledby="overviewTitle">
+        <h2 class="section-title" id="overviewTitle">R星工作室争议与内幕的方向图谱</h2>
+        <div class="overview-text">
+          <p>围绕Rockstar Games（R星）的讨论在2026年秋季进入密集期。一方面，《GTA6》的开发进度牵动全球玩家，另一方面，工作室内部的管理方式、项目取消与员工流动持续引发社区争议。当前可追踪的内容大致分为几个方向：<strong>项目传闻层</strong>——涉及《GTA6》测试版本流出的截图与邮件片段；<strong>人事变动层</strong>——包括前员工在Glassdoor和LinkedIn上的匿名发言、离职后的采访；<strong>作品评价层</strong>——如《GTA三部曲 决定版》发售三年后仍被玩家翻出技术问题；<strong>社区反应层</strong>——Reddit的r/GTA6板块与国内贴吧、B站UP主整理的对比视频。</p>
+          <p>值得单列的是前R星美术总监在11月5日播客中谈到的《恶霸鲁尼2》取消内幕，以及11月7日流出的内部测试邮件，两者分别落在“历史项目”与“当前进度”两个时间带上。这些条目在可信度上差异明显：官方公告与法庭文件属于高可信来源，匿名论坛截图需要交叉比对，而社交媒体上的“舅舅党”发言通常只有单一出处。页面按来源类型分别标注，不混为一谈。</p>
+        </div>
+      </section>
+
+      <!-- 精选内容推荐 -->
+      <section class="section" id="content-picks" aria-labelledby="picksTitle">
+        <h2 class="section-title" id="picksTitle">值得点开的争议条目</h2>
+        <div class="card-grid">
+          <div class="card">
+            <img src="https://picsum.photos/seed/gta6leak1/400/300" width="400" height="300" alt="GTA6测试邮件截图" loading="lazy">
+            <div class="card-body">
+              <div class="card-tags"><span class="tag primary">核心爆料</span><span class="tag">GTA6</span><span class="tag">内部邮件</span></div>
+              <div class="card-title">GTA6 测试邮件流出：2027年秋发售窗口</div>
+              <div class="card-desc">11月7日流出的内部邮件显示，QA团队被告知“2027年Q3为硬性截止点”，邮件提及“全平台并行测试”与“PC版延后”。</div>
+              <div class="card-meta"><span>🔥 热度 9.2</span><span>👁 1.2万阅读</span></div>
+            </div>
+          </div>
+          <div class="card">
+            <img src="https://picsum.photos/seed/bully2cancel/400/300" width="400" height="300" alt="前R星美术总监播客截图" loading="lazy">
+            <div class="card-body">
+              <div class="card-tags"><span class="tag">前员工访谈</span><span class="tag">恶霸鲁尼2</span><span class="tag">项目取消</span></div>
+              <div class="card-title">前美术总监谈《恶霸鲁尼2》：2013年已完成70%</div>
+              <div class="card-desc">11月5日播客中，前R星美术总监称《恶霸鲁尼2》在2013年已完成70%内容，因《GTA5》在线模式营收超预期被抽调人手。</div>
+              <div class="card-meta"><span>🔥 热度 8.7</span><span>👁 8900阅读</span></div>
+            </div>
+          </div>
+          <div class="card">
+            <img src="https://picsum.photos/seed/gtaTrilogy/400/300" width="400" height="300" alt="GTA三部曲决定版差评界面" loading="lazy">
+            <div class="card-body">
+              <div class="card-tags"><span class="tag">作品评价</span><span class="tag">决定版</span><span class="tag">差评</span></div>
+              <div class="card-title">GTA三部曲决定版 Steam 好评率跌至19%</div>
+              <div class="card-desc">11月3日数据，该作近期评价“差评如潮”，玩家集中反馈音频丢失、建模错误与手机端操作适配问题。</div>
+              <div class="card-meta"><span>🔥 热度 7.5</span><span>👁 6700阅读</span></div>
+            </div>
+          </div>
+          <div class="card">
+            <img src="https://picsum.photos/seed/rStarCrunch/400/300" width="400" height="300" alt="R星办公室外景" loading="lazy">
+            <div class="card-body">
+              <div class="card-tags"><span class="tag">员工爆料</span><span class="tag">加班文化</span><span class="tag">Glassdoor</span></div>
+              <div class="card-title">Glassdoor 匿名帖：R星利兹办公室“强制周六”</div>
+              <div class="card-desc">10月28日至11月6日新增12条匿名评价，其中7条提及“强制周六加班”，3条称“项目冲刺期持续到2027年”。</div>
+              <div class="card-meta"><span>🔥 热度 8.1</span><span>👁 5400阅读</span></div>
+            </div>
+          </div>
+          <div class="card">
+            <img src="https://picsum.photos/seed/gta6map/400/300" width="400" height="300" alt="GTA6地图泄露对比图" loading="lazy">
+            <div class="card-body">
+              <div class="card-tags"><span class="tag">地图传闻</span><span class="tag">GTA6</span><span class="tag">Reddit</span></div>
+              <div class="card-title">r/GTA6 版主删帖：地图泄露帖“无法核实”</div>
+              <div class="card-desc">11月4日，r/GTA6版主团队以“来源单一且无法交叉验证”为由删除一张标注“罪恶都市扩展区”的地图截图。</div>
+              <div class="card-meta"><span>🔥 热度 7.8</span><span>👁 4800阅读</span></div>
+            </div>
+          </div>
+          <div class="card">
+            <img src="https://picsum.photos/seed/take2legal/400/300" width="400" height="300" alt="Take-Two法务文件" loading="lazy">
+            <div class="card-body">
+              <div class="card-tags"><span class="tag">法律层面</span><span class="tag">Take-Two</span><span class="tag">版权投诉</span></div>
+              <div class="card-title">Take-Two 向 GitHub 发出 DMCA 通知，涉及5个模组仓库</div>
+              <div class="card-desc">11月1日，Take-Two 法务要求下架5个与《GTA：圣安地列斯》相关的逆向工程仓库，其中一个已获1200星。</div>
+              <div class="card-meta"><span>🔥 热度 6.9</span><span>👁 3900阅读</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 最新更新 / 动态 -->
+      <section class="section" id="latest-updates" aria-labelledby="updatesTitle">
+        <h2 class="section-title" id="updatesTitle">近七日条目更新</h2>
+        <div class="compact-list">
+          <div class="compact-item"><span class="item-title">GTA6 测试邮件流出</span><span class="item-summary">邮件提及2027年Q3硬性截止，QA团队扩招至400人。</span><span class="item-date">11月7日</span></div>
+          <div class="compact-item"><span class="item-title">前美术总监播客访谈</span><span class="item-summary">《恶霸鲁尼2》2013年完成70%，被《GTA5》在线模式抽调。</span><span class="item-date">11月5日</span></div>
+          <div class="compact-item"><span class="item-title">GTA三部曲决定版差评</span><span class="item-summary">Steam好评率19%，音频丢失问题持续三年未修。</span><span class="item-date">11月3日</span></div>
+          <div class="compact-item"><span class="item-title">Take-Two DMCA 通知</span><span class="item-summary">5个模组仓库被要求下架，涉及逆向工程与资产提取。</span><span class="item-date">11月1日</span></div>
+          <div class="compact-item"><span class="item-title">Glassdoor 匿名帖新增</span><span class="item-summary">利兹办公室12条新评价，7条提及强制周六加班。</span><span class="item-date">10月30日</span></div>
+          <div class="compact-item"><span class="item-title">r/GTA6 删除地图帖</span><span class="item-summary">版主称“无法交叉验证”，帖子存活不足6小时。</span><span class="item-date">10月28日</span></div>
+          <div class="compact-item"><span class="item-title">R星印度QA团队扩招</span><span class="item-summary">班加罗尔办公室新增200个QA岗位，合同期至2027年底。</span><span class="item-date">10月26日</span></div>
+          <div class="compact-item"><span class="item-title">《GTA Online》冬季DLC预告</span><span class="item-summary">官方确认12月上线“突袭佩里科岛”续章，新增载具。</span><span class="item-date">10月24日</span></div>
+        </div>
+      </section>
+
+      <!-- 分类入口 -->
+      <section class="section" id="categories" aria-labelledby="catTitle">
+        <h2 class="section-title" id="catTitle">按类型筛选黑料</h2>
+        <div class="category-grid">
+          <a href="/#gta6-leaks" class="category-item">GTA6 传闻</a>
+          <a href="/#studio-drama" class="category-item">工作室风波</a>
+          <a href="/#employee-voices" class="category-item">员工爆料</a>
+          <a href="/#player-reactions" class="category-item">玩家反应</a>
+          <a href="/#industry-analysis" class="category-item">行业解析</a>
+          <a href="/#news-briefs" class="category-item">官方公告</a>
+          <a href="/#community-comments" class="category-item">社区讨论</a>
+          <a href="/#submit-tip" class="category-item">线索投稿</a>
+        </div>
+      </section>
+
+      <!-- 深度解析 -->
+      <section class="section" id="industry-analysis" aria-labelledby="analysisTitle">
+        <h2 class="section-title" id="analysisTitle">R星爆料的可信度分层与传播链条</h2>
+        <div class="deep-dive">
+          <h3>邮件截图的三个来源层级</h3>
+          <p>11月7日流出的“2027年Q3截止”邮件，在传播中至少经过三次转手。第一层是原始截图发布在4chan的/v/板块，发布时间为美东11月6日23:17，发帖者未提供可验证的邮件头信息。第二层是Twitter账号@GTA6Intel于11月7日02:40转发并附文“已向三个消息源求证，两个确认”，但未公开求证记录。第三层是国内B站UP主“黑料搬运工”在11月7日10:22制作的中文字幕版，播放量在6小时内达到18.7万。</p>
+          <p>判断这条截图的可信度，需要拆开三个环节：<strong>邮件格式</strong>——截图中的R星内部邮件域名后缀为“@rockstargames.com”，但字体与2025年流出的真实邮件截图存在差异，后者使用的是Arial 11pt，新截图是Calibri 12pt；<strong>发帖时间线</strong>——4chan原帖在30分钟内被删除，但已被存档站截获；<strong>交叉印证</strong>——Kotaku在11月7日15:00的报道中称“已联系R星公关但未获回复”，未确认截图真实性。</p>
+          <div class="highlight-box">
+            可核对的判断：这条邮件的可信度取决于“是否有第二个独立来源确认邮件头”。截至11月8日，公开可见的佐证只有@GTA6Intel的单方面声明，缺少邮件服务器日志或第二封邮件的交叉比对。按站内分层标准，它属于“单一来源待验证”，不进入“已确认”层级。
+          </div>
+
+          <h3>《恶霸鲁尼2》取消时间线的前后差异</h3>
+          <p>前美术总监在11月5日播客中的说法，与2017年Kotaku的报道存在两处差异。第一，播客称项目在2013年已完成70%，而Kotaku 2017年文章引述匿名信源称“项目在2012年就被冻结”；第二，播客称抽调原因是“《GTA5》在线模式营收超预期”，而Kotaku的报道将原因归于“R星集中资源到《荒野大镖客2》”。两处差异指向同一个决策窗口（2012—2013年），但归因不同。目前无法从公开文件判断哪一版更准确，但可以确认的是：R星在2013—2014年间确实取消了至少两个非GTA项目。</p>
+
+          <h3>玩家差评与作品实际状态的对齐程度</h3>
+          <p>《GTA三部曲 决定版》在Steam的近期好评率19%，差评集中在三类问题：音频丢失（占比约42%的差评提及）、角色建模错误（31%）、手机端操作适配（18%）。这些差评的时间分布值得注意——2026年10月28日至11月3日新增差评487条，其中62%来自10月30日之后，与一次15GB的更新包发布时间重合。更新包修复了部分音频问题，但也引入了新的贴图错误。差评的集中爆发与更新包的推送存在时间关联，但玩家反馈中缺少对更新前后版本的逐项对比。</p>
+        </div>
+      </section>
+
+      <!-- 体验指南 / 消费路径 -->
+      <section class="section" id="consumption-guide" aria-labelledby="guideTitle">
+        <h2 class="section-title" id="guideTitle">如何判断一条R星黑料值不值得跟进</h2>
+        <div class="deep-dive">
+          <p>面对每天冒出来的R星传闻，把时间花在哪些条目上是有讲究的。一个实用的顺序是：先看来源类型，再看交叉印证数量，最后看是否有后续动作。</p>
+          <h3>第一步：区分来源类型</h3>
+          <ul>
+            <li><strong>官方公告</strong>（R星官网Newswire、Take-Two财报电话会）：可信度最高，但信息量通常有限，多为发售窗口或延期声明。</li>
+            <li><strong>法庭文件与监管备案</strong>：如Take-Two的DMCA通知、SEC文件，属于可公开查证的事实。</li>
+            <li><strong>前员工实名访谈</strong>：如11月5日播客中的美术总监，有具体人名和职位，可追溯，但受个人记忆和立场影响。</li>
+            <li><strong>匿名论坛截图</strong>：4chan、Reddit的匿名帖，需要至少两个独立来源交叉印证才值得跟进。</li>
+          </ul>
+          <h3>第二步：数一数交叉印证的数量</h3>
+          <p>以11月7日的GTA6测试邮件为例，如果只有4chan原帖和@GTA6Intel的转发，属于“单一链条”，可以围观但不必投入太多时间。如果Kotaku、Bloomberg或Jason Schreier跟进报道并给出独立信源，则升级为“可跟进”。目前这条邮件停留在第一档。</p>
+          <h3>第三步：看有没有后续动作</h3>
+          <p>R星或Take-Two的官方反应是重要信号。11月1日的DMCA通知发出后，GitHub上被点名的5个仓库中有3个在48小时内清空，2个转为私有——这种后续动作反过来印证了通知的真实性。而11月7日的邮件截图流出至今，R星官方未做任何回应，也没有第二个可验证的邮件出现，后续动作为零。</p>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section class="section" id="faq" aria-labelledby="faqTitle">
+        <h2 class="section-title" id="faqTitle">关于R星黑料的常见疑问</h2>
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary>GTA6 真的会在2027年发售吗？</summary>
+            <div class="faq-answer">Take-Two在2026年8月的财报电话会中确认《GTA6》仍以“2027财年”为目标窗口，对应2026年4月至2027年3月。11月7日流出的测试邮件提到“2027年Q3硬性截止”，与财报窗口存在时间差。两者并不完全一致，官方口径未变，邮件属于未验证来源。</div>
+          </details>
+          <details class="faq-item">
+            <summary>《恶霸鲁尼2》到底有没有做过？</summary>
+            <div class="faq-answer">做过。前R星美术总监在11月5日播客中确认项目在2013年已完成70%内容。更早的2017年Kotaku报道也引述匿名信源称该项目在2012—2013年间被冻结。两个来源在“项目存在”这一点上一致，分歧在于取消的具体原因和精确时间。</div>
+          </details>
+          <details class="faq-item">
+            <summary>R星利兹办公室的加班情况有多严重？</summary>
+            <div class="faq-answer">Glassdoor在2026年10月28日至11月6日新增的12条匿名评价中，7条明确提及“强制周六加班”，3条称“冲刺期持续到2027年”。这些评价无法逐条核实身份，但时间集中且描述一致，可以作为参考。R星官方未对加班问题作出回应。</div>
+          </details>
+          <details class="faq-item">
+            <summary>GTA三部曲决定版为什么差评这么多？</summary>
+            <div class="faq-answer">Steam近期好评率19%的背后，差评集中在三类问题：音频丢失（42%的差评提及）、角色建模错误（31%）、手机端操作适配（18%）。10月30日的15GB更新包修复了部分音频问题但引入了新的贴图错误，导致11月3日前后差评集中爆发。</div>
+          </details>
+          <details class="faq-item">
+            <summary>Take-Two 的 DMCA 通知针对的是什么？</summary>
+            <div class="faq-answer">11月1日的DMCA通知要求GitHub下架5个与《GTA：圣安地列斯》相关的逆向工程仓库，其中一个已获1200星。这些仓库涉及游戏资产提取和代码反编译。被点名的仓库中3个在48小时内清空，2个转为私有。</div>
+          </details>
+          <details class="faq-item">
+            <summary>R星印度QA团队扩招意味着什么？</summary>
+            <div class="faq-answer">班加罗尔办公室新增200个QA岗位，合同期至2027年底，与GTA6的测试时间线吻合。QA扩招通常发生在项目进入密集测试阶段，但合同期限也说明这些岗位是项目制而非长期编制。</div>
+          </details>
+        </div>
+      </section>
+
+      <!-- 用户评论 -->
+      <section class="section" id="community-comments" aria-labelledby="commentsTitle">
+        <h2 class="section-title" id="commentsTitle">玩家在聊什么</h2>
+        <div class="comment-grid">
+          <div class="comment-card"><div class="comment-header"><span class="comment-nickname">罪恶都市老司机</span><span class="comment-time">11月7日</span></div><div class="comment-text">邮件截图那个字体就不对，R星内部邮件我见过，Arial 11pt用了十年没换过。这次冒出个Calibri，先观望。</div></div>
+          <div class="comment-card"><div class="comment-header"><span class="comment-nickname">洛圣都堵车王</span><span class="comment-time">11月7日</span></div><div class="comment-text">恶霸鲁尼2那个播客我听了两遍，美术总监说到“70%完成度”的时候明显犹豫了一下，可能记不太清了。但项目存在这事没跑。</div></div>
+          <div class="comment-card"><div class="comment-header"><span class="comment-nickname">崔佛的邻居</span><span class="comment-time">11月6日</span></div><div class="comment-text">决定版差评这事，2021年首发就炸了，现在19%好评不奇怪。倒是那个15GB更新包，修了音频又搞坏贴图，真行。</div></div>
+          <div class="comment-card"><div class="comment-header"><span class="comment-nickname">麦克的 therapist</span><span class="comment-time">11月6日</span></div><div class="comment-text">利兹办公室的帖子我也看了，有个说“周六到岗但没活干，就在那坐着”的，这条比单纯说加班更值得琢磨。</div></div>
+          <div class="comment-card"><div class="comment-header"><span class="comment-nickname">富兰克林不炒股</span><span class="comment-time">11月5日</span></div><div class="comment-text">DMCA那事，GitHub上被点名的仓库我收藏了两个，现在已经404了。动作挺快。</div></div>
+          <div class="comment-card"><div class="comment-header"><span class="comment-nickname">GTA6等麻了</span><span class="comment-time">11月5日</span></div><div class="comment-text">2027年Q3？我2023年就听到一模一样的说法，连季度都没变。这邮件不会是旧图新发吧。</div></div>
+          <div class="comment-card"><div class="comment-header"><span class="comment-nickname">圣安地列斯土著</span><span class="comment-time">11月4日</span></div><div class="comment-text">r/GTA6版主删地图帖这事，删得对。那张图我看了，就是把2025年泄露的旧图加了几个标注，没新东西。</div></div>
+          <div class="comment-card"><div class="comment-header"><span class="comment-nickname">午夜俱乐部遗老</span><span class="comment-time">11月3日</span></div><div class="comment-text">比起GTA6，我更想知道《午夜俱乐部》还有没有可能。R星现在只认GTA和荒野大镖客，别的IP全凉了。</div></div>
+          <div class="comment-card"><div class="comment-header"><span class="comment-nickname">黑水镇钓鱼佬</span><span class="comment-time">11月3日</span></div><div class="comment-text">决定版的手机端操作，那个触屏按钮布局简直反人类。更新包说优化了，结果把跳跃键和射击键换了个位置，更难按了。</div></div>
+          <div class="comment-card"><div class="comment-header"><span class="comment-nickname">R星前实习生</span><span class="comment-time">11月2日</span></div><div class="comment-text">Glassdoor上那些帖子，有些一看就是带着情绪写的。但“强制周六”这事在几个办公室都有耳闻，不是利兹独有。</div></div>
+          <div class="comment-card"><div class="comment-header"><span class="comment-nickname">佩里科岛岛主</span><span class="comment-time">11月1日</span></div><div class="comment-text">GTA Online冬季DLC那个“突袭佩里科岛续章”，预告片里出现了一辆新的两栖车。希望别又是换皮。</div></div>
+          <div class="comment-card"><div class="comment-header"><span class="comment-nickname">正义的举报侠</span><span class="comment-time">10月31日</span></div><div class="comment-text">建议各位看到截图先存一份，4chan原帖删得太快了。我11月6号晚上截的图，第二天想回去看，帖子已经没了。</div></div>
+          <div class="comment-card"><div class="comment-header"><span class="comment-nickname">荒野打猎不骑马</span><span class="comment-time">10月30日</span></div><div class="comment-text">加班这事，游戏行业哪个3A项目冲刺期不是这样。当然不是说合理，只是说这不新鲜。</div></div>
+          <div class="comment-card"><div class="comment-header"><span class="comment-nickname">洛圣都改车王</span><span class="comment-time">10月29日</span></div><div class="comment-text">有没有人统计过R星从GTA5之后取消了多少个项目？我印象里恶霸鲁尼2、Agent、还有那个中世纪题材的，全没了。</div></div>
+        </div>
+      </section>
+
+      <!-- 相关资讯 -->
+      <section class="section" id="news-briefs" aria-labelledby="newsTitle">
+        <h2 class="section-title" id="newsTitle">近期R星相关动态</h2>
+        <div class="news-list">
+          <div class="news-item">
+            <span class="news-date">11月7日</span>
+            <div class="news-content">
+              <div class="news-title">4chan 流出 GTA6 测试邮件，提及2027年Q3截止</div>
+              <div class="news-summary">原帖发布于美东11月6日23:17，30分钟内被删除。截图显示QA团队扩招至400人，邮件字体与2025年真实邮件存在差异。</div>
+            </div>
+          </div>
+          <div class="news-item">
+            <span class="news-date">11月5日</span>
+            <div class="news-content">
+              <div class="news-title">前R星美术总监播客谈《恶霸鲁尼2》取消内幕</div>
+              <div class="news-summary">在“Game Dev Unlocked”播客中，前美术总监称项目2013年完成70%，因《GTA5》在线模式营收超预期被抽调人手。</div>
+            </div>
+          </div>
+          <div class="news-item">
+            <span class="news-date">11月3日</span>
+            <div class="news-content">
+              <div class="news-title">GTA三部曲决定版 Steam 近期好评率跌至19%</div>
+              <div class="news-summary">10月30日15GB更新包推送后，差评新增487条，其中62%集中在11月1日至3日。音频丢失问题修复不彻底。</div>
+            </div>
+          </div>
+          <div class="news-item">
+            <span class="news-date">11月1日</span>
+            <div class="news-content">
+              <div class="news-title">Take-Two 向 GitHub 发出 DMCA 通知，5个仓库被点名</div>
+              <div class="news-summary">被通知仓库涉及《GTA：圣安地列斯》逆向工程，其中一个已获1200星。48小时内3个仓库清空，2个转为私有。</div>
+            </div>
+          </div>
+          <div class="news-item">
+            <span class="news-date">10月30日</span>
+            <div class="news-content">
+              <div class="news-title">Glassdoor 新增12条R星利兹办公室评价</div>
+              <div class="news-summary">其中7条提及“强制周六加班”，3条称冲刺期持续到2027年。一条评价描述“周六到岗但无任务分配”。</div>
+            </div>
+          </div>
+          <div class="news-item">
+            <span class="news-date">10月26日</span>
+            <div class="news-content">
+              <div class="news-title">R星班加罗尔办公室新增200个QA岗位</div>
+              <div class="news-summary">合同期至2027年底，招聘页面显示岗位要求包含“多平台兼容性测试”与“性能基准测试”。</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 相关推荐 -->
+      <section class="section" id="recommend-tags" aria-labelledby="recommendTitle">
+        <h2 class="section-title" id="recommendTitle">你可能还想翻的条目</h2>
+        <div class="recommend-tags">
+          <a href="/#gta6-leaks" class="recommend-tag">GTA6 罪恶都市地图对比</a>
+          <a href="/#studio-drama" class="recommend-tag">Agent 项目取消始末</a>
+          <a href="/#employee-voices" class="recommend-tag">R星 QA 团队薪资对比</a>
+          <a href="/#player-reactions" class="recommend-tag">决定版手机端操作吐槽合集</a>
+          <a href="/#industry-analysis" class="recommend-tag">Take-Two 法务行动时间线</a>
+          <a href="/#news-briefs" class="recommend-tag">GTA Online 冬季DLC 解包</a>
+          <a href="/#community-comments" class="recommend-tag">前员工匿名帖可信度拆解</a>
+          <a href="/#submit-tip" class="recommend-tag">如何匿名投稿线索</a>
+        </div>
+      </section>
+
+      <!-- 补充板块：热门榜单与投稿 -->
+      <section class="section" id="submit-tip" aria-labelledby="submitTitle">
+        <h2 class="section-title" id="submitTitle">热度榜与线索投稿</h2>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+          <div>
+            <h3 style="font-size: 15px; margin-bottom: 12px; color: var(--color-text-primary);">本周黑料热度榜</h3>
+            <div class="rank-list">
+              <div class="rank-item"><span class="rank-number">1</span><span class="rank-title">GTA6 测试邮件流出</span><span class="rank-score">9.2</span></div>
+              <div class="rank-item"><span class="rank-number">2</span><span class="rank-title">恶霸鲁尼2 取消内幕</span><span class="rank-score">8.7</span></div>
+              <div class="rank-item"><span class="rank-number">3</span><span class="rank-title">利兹办公室加班帖</span><span class="rank-score">8.1</span></div>
+              <div class="rank-item"><span class="rank-number">4</span><span class="rank-title">r/GTA6 地图帖被删</span><span class="rank-score">7.8</span></div>
+              <div class="rank-item"><span class="rank-number">5</span><span class="rank-title">决定版好评率19%</span><span class="rank-score">7.5</span></div>
+            </div>
+          </div>
+          <div class="contribute-box">
+            <p style="font-size: 14px; font-weight: 600; color: var(--color-text-primary); margin-bottom: 6px;">有R星内部线索？</p>
+            <p>匿名提交开发文档、邮件截图或办公室见闻，经交叉验证后发布。</p>
+            <a href="/#submit-tip">提交线索 →</a>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- 右侧辅助栏 -->
+    <aside class="right-sidebar" aria-label="辅助信息">
+      <div class="sidebar-card">
+        <h3>🔥 热度榜</h3>
+        <div class="rank-list">
+          <div class="rank-item"><span class="rank-number">1</span><span class="rank-title">GTA6 测试邮件流出</span><span class="rank-score">9.2</span></div>
+          <div class="rank-item"><span class="rank-number">2</span><span class="rank-title">恶霸鲁尼2 取消内幕</span><span class="rank-score">8.7</span></div>
+          <div class="rank-item"><span class="rank-number">3</span><span class="rank-title">利兹办公室加班帖</span><span class="rank-score">8.1</span></div>
+          <div class="rank-item"><span class="rank-number">4</span><span class="rank-title">r/GTA6 地图帖被删</span><span class="rank-score">7.8</span></div>
+          <div class="rank-item"><span class="rank-number">5</span><span class="rank-title">决定版好评率19%</span><span class="rank-score">7.5</span></div>
+        </div>
+      </div>
+      <div class="sidebar-card">
+        <h3>📌 快速导航</h3>
+        <div class="rank-list">
+          <div class="rank-item"><span class="rank-title"><a href="/#gta6-leaks">GTA6 爆料汇总</a></span></div>
+          <div class="rank-item"><span class="rank-title"><a href="/#employee-voices">员工匿名访谈</a></span></div>
+          <div class="rank-item"><span class="rank-title"><a href="/#industry-analysis">可信度分层解析</a></span></div>
+          <div class="rank-item"><span class="rank-title"><a href="/#faq">常见问答</a></span></div>
+          <div class="rank-item"><span class="rank-title"><a href="/#submit-tip">投稿线索</a></span></div>
+        </div>
+      </div>
+      <div class="sidebar-card" style="background: var(--color-bg);">
+        <h3>📊 条目构成</h3>
+        <p style="font-size: 13px; color: var(--color-text-secondary); line-height: 1.7;">近30天收录：42条<br>已交叉验证：17条<br>单一来源待验：25条<br>官方回应：3条</p>
+      </div>
+    </aside>
+
+  </div>
+
+  <!-- 页尾 -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="brand-text">每日黑料r星</div>
+          <p>追踪R星工作室的未公开项目、开发风波与员工爆料，覆盖2026年10月至11月的条目，包含邮件截图、播客访谈、Glassdoor匿名帖、DMCA通知与玩家差评数据。每日更新，按可信度分层标注。</p>
+        </div>
+        <div class="footer-col">
+          <h4>频道</h4>
+          <a href="/#gta6-leaks">GTA6爆料</a>
+          <a href="/#studio-drama">工作室风波</a>
+          <a href="/#employee-voices">员工爆料</a>
+          <a href="/#player-reactions">玩家反应</a>
+        </div>
+        <div class="footer-col">
+          <h4>内容</h4>
+          <a href="/#content-picks">精选内容</a>
+          <a href="/#latest-updates">最新动态</a>
+          <a href="/#industry-analysis">深度解析</a>
+          <a href="/#news-briefs">相关资讯</a>
+        </div>
+        <div class="footer-col">
+          <h4>互动</h4>
+          <a href="/#faq">常见问答</a>
+          <a href="/#community-comments">社区评论</a>
+          <a href="/#recommend-tags">相关推荐</a>
+          <a href="/#submit-tip">投稿入口</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 每日黑料r星 · 内容为玩家社区聚合示例，不构成官方信息</span>
+        <span>更新于 2026年11月8日</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 回到顶部 -->
+  <button class="back-to-top" id="backToTop" aria-label="回到顶部">↑</button>
+
+  <script>
+    (function() {
+      // 移动端菜单
+      const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+      const mobileNav = document.getElementById('mobileNav');
+      const overlay = document.getElementById('overlay');
+
+      function closeMenu() {
+        mobileNav.classList.remove('active');
+        overlay.classList.remove('active');
+        mobileMenuBtn.setAttribute('aria-expanded', 'false');
+        mobileMenuBtn.textContent = '☰';
+      }
+
+      function openMenu() {
+        mobileNav.classList.add('active');
+        overlay.classList.add('active');
+        mobileMenuBtn.setAttribute('aria-expanded', 'true');
+        mobileMenuBtn.textContent = '✕';
+      }
+
+      mobileMenuBtn.addEventListener('click', function() {
+        if (mobileNav.classList.contains('active')) {
+          closeMenu();
+        } else {
+          openMenu();
+        }
+      });
+
+      overlay.addEventListener('click', closeMenu);
+
+      mobileNav.querySelectorAll('a').forEach(function(link) {
+        link.addEventListener('click', closeMenu);
+      });
+
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+          closeMenu();
+        }
+      });
+
+      // 回到顶部
+      const backToTop = document.getElementById('backToTop');
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > window.innerHeight) {
+          backToTop.classList.add('visible');
+        } else {
+          backToTop.classList.remove('visible');
+        }
+      });
+
+      backToTop.addEventListener('click', function() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+
+      // 搜索
+      const searchInput = document.getElementById('searchInput');
+      const searchBtn = document.getElementById('searchBtn');
+
+      function doSearch() {
+        const query = searchInput.value.trim().toLowerCase();
+        if (!query) {
+          return;
+        }
+        // 简单查找：查找页面上包含该文本的卡片或条目
+        const cards = document.querySelectorAll('.card, .compact-item, .news-item, .faq-item, .comment-card');
+        let found = false;
+        cards.forEach(function(el) {
+          if (el.textContent.toLowerCase().includes(query)) {
+            el.style.outline = '2px solid var(--color-primary)';
+            el.style.outlineOffset = '2px';
+            found = true;
+            setTimeout(function() {
+              el.style.outline = '';
+              el.style.outlineOffset = '';
+            }, 2000);
+          } else {
+            el.style.outline = '';
+            el.style.outlineOffset = '';
+          }
+        });
+        if (!found) {
+          alert('未找到包含“' + query + '”的条目，试试其他关键词。');
+        }
+      }
+
+      searchBtn.addEventListener('click', doSearch);
+      searchInput.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') {
+          doSearch();
+        }
+      });
+
+      // 频道导航高亮
+      const navLinks = document.querySelectorAll('.channel-sidebar nav a');
+      const sections = document.querySelectorAll('.section[id]');
+      window.addEventListener('scroll', function() {
+        let currentId = '';
+        sections.forEach(function(section) {
+          const rect = section.getBoundingClientRect();
+          if (rect.top <= 200) {
+            currentId = section.id;
+          }
+        });
+        navLinks.forEach(function(link) {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === '/#' + currentId) {
+            link.classList.add('active');
+          }
+        });
+      });
+    })();
+  </script>
+
+  <!-- 结构化数据 -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "每日黑料r星",
+    "description": "聚焦R星工作室内幕与争议的内容聚合页面",
+    "url": "https://example.com"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "GTA6 真的会在2027年发售吗？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Take-Two在2026年8月的财报电话会中确认《GTA6》仍以“2027财年”为目标窗口，对应2026年4月至2027年3月。11月7日流出的测试邮件提到“2027年Q3硬性截止”，与财报窗口存在时间差。两者并不完全一致，官方口径未变，邮件属于未验证来源。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "《恶霸鲁尼2》到底有没有做过？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "做过。前R星美术总监在11月5日播客中确认项目在2013年已完成70%内容。更早的2017年Kotaku报道也引述匿名信源称该项目在2012—2013年间被冻结。两个来源在“项目存在”这一点上一致，分歧在于取消的具体原因和精确时间。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "R星利兹办公室的加班情况有多严重？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Glassdoor在2026年10月28日至11月6日新增的12条匿名评价中，7条明确提及“强制周六加班”，3条称“冲刺期持续到2027年”。这些评价无法逐条核实身份，但时间集中且描述一致，可以作为参考。R星官方未对加班问题作出回应。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "GTA三部曲决定版为什么差评这么多？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Steam近期好评率19%的背后，差评集中在三类问题：音频丢失（42%的差评提及）、角色建模错误（31%）、手机端操作适配（18%）。10月30日的15GB更新包修复了部分音频问题但引入了新的贴图错误，导致11月3日前后差评集中爆发。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Take-Two 的 DMCA 通知针对的是什么？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "11月1日的DMCA通知要求GitHub下架5个与《GTA：圣安地列斯》相关的逆向工程仓库，其中一个已获1200星。这些仓库涉及游戏资产提取和代码反编译。被点名的仓库中3个在48小时内清空，2个转为私有。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "R星印度QA团队扩招意味着什么？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "班加罗尔办公室新增200个QA岗位，合同期至2027年底，与GTA6的测试时间线吻合。QA扩招通常发生在项目进入密集测试阶段，但合同期限也说明这些岗位是项目制而非长期编制。"
+        }
+      }
+    ]
+  }
+  </script>
+
+</body>
+                </html>
