@@ -1,0 +1,2013 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>tk挠澳门映画vk - 澳门影视内容聚合</title>
+  <meta name="description" content="tk挠澳门映画vk 汇聚澳门电影、剧集、综艺与短片，包含映画榜单、深度解析、观众评论及近期动态，适合关注澳门影像文化的影迷查阅。">
+  <meta name="keywords" content="tk挠澳门映画vk">
+  <style>
+    /* ---------- 全局变量与重置 ---------- */
+    :root {
+      --primary: #0f3b3f;
+      --primary-light: #1e5f63;
+      --primary-dark: #0a2629;
+      --accent: #d9a05b;
+      --accent-light: #f3d9b1;
+      --bg: #f7f4ef;
+      --surface: #ffffff;
+      --text-primary: #1c1e21;
+      --text-secondary: #4a4e57;
+      --text-tertiary: #7d8189;
+      --border: #dad5cd;
+      --shadow-default: 0 2px 8px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.03);
+      --shadow-hover: 0 8px 20px rgba(0, 0, 0, 0.08), 0 2px 6px rgba(0, 0, 0, 0.04);
+      --radius-card: 12px;
+      --radius-btn: 8px;
+      --radius-tag: 6px;
+      --radius-banner: 16px;
+      --font-sans: 'Inter', 'PingFang SC', 'Microsoft YaHei', system-ui, -apple-system, sans-serif;
+      --font-mono: 'SF Mono', 'Fira Code', monospace;
+      --max-width: 1360px;
+      --header-height: 64px;
+      --announcement-height: 36px;
+      --total-sticky: calc(var(--announcement-height) + var(--header-height));
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: var(--total-sticky);
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--bg);
+      color: var(--text-primary);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    ul, ol {
+      list-style: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+
+    button {
+      cursor: pointer;
+      font-family: inherit;
+      border: none;
+      background: none;
+    }
+
+    /* ---------- 吸顶公告条 ---------- */
+    .announcement-bar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      height: var(--announcement-height);
+      background: var(--primary-dark);
+      color: #e8e2d9;
+      display: flex;
+      align-items: center;
+      font-size: 0.8rem;
+      padding: 0 1.5rem;
+      overflow: hidden;
+    }
+
+    .announcement-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      flex-wrap: nowrap;
+      white-space: nowrap;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .announcement-inner::-webkit-scrollbar {
+      display: none;
+    }
+
+    .announcement-brand {
+      font-weight: 600;
+      color: var(--accent);
+      letter-spacing: 0.3px;
+      flex-shrink: 0;
+    }
+
+    .announcement-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      flex-shrink: 0;
+    }
+
+    .announcement-date {
+      color: var(--accent-light);
+      font-size: 0.75rem;
+      opacity: 0.85;
+    }
+
+    .announcement-sep {
+      width: 1px;
+      height: 14px;
+      background: rgba(255,255,255,0.2);
+      flex-shrink: 0;
+    }
+
+    /* ---------- 吸顶页头 ---------- */
+    .site-header {
+      position: sticky;
+      top: var(--announcement-height);
+      z-index: 99;
+      height: var(--header-height);
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      padding: 0 1.5rem;
+    }
+
+    .header-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+    }
+
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      flex-shrink: 0;
+    }
+
+    .logo-svg {
+      width: 34px;
+      height: 34px;
+    }
+
+    .logo-text {
+      font-weight: 700;
+      font-size: 1.15rem;
+      color: var(--primary);
+      letter-spacing: -0.3px;
+    }
+
+    .main-nav {
+      display: flex;
+      gap: 1.5rem;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+    }
+
+    .main-nav a {
+      padding: 0.25rem 0;
+      border-bottom: 2px solid transparent;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .main-nav a:hover {
+      color: var(--primary);
+      border-bottom-color: var(--accent);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .search-toggle {
+      display: none;
+    }
+
+    .search-box {
+      display: flex;
+      align-items: center;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-btn);
+      padding: 0.3rem 0.75rem;
+      gap: 0.4rem;
+    }
+
+    .search-box input {
+      border: none;
+      background: transparent;
+      font-size: 0.85rem;
+      width: 160px;
+      outline: none;
+      color: var(--text-primary);
+      font-family: inherit;
+    }
+
+    .search-box input::placeholder {
+      color: var(--text-tertiary);
+    }
+
+    .search-box button {
+      color: var(--text-tertiary);
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 4px;
+      width: 28px;
+      height: 28px;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 20px;
+      height: 2px;
+      background: var(--primary);
+      border-radius: 1px;
+      transition: transform 0.2s, opacity 0.2s;
+    }
+
+    /* ---------- 首屏 ---------- */
+    .hero {
+      position: relative;
+      background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 55%, #1b4a4e 100%);
+      color: #f2ede6;
+      padding: 3.5rem 1.5rem 3rem;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -40%;
+      right: -10%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(217, 160, 91, 0.15) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -50%;
+      left: -5%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.06) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      margin-bottom: 1rem;
+      color: #fff;
+    }
+
+    .hero-desc {
+      max-width: 640px;
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: rgba(255, 255, 255, 0.78);
+      margin-bottom: 2rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: var(--accent);
+      color: var(--primary-dark);
+      font-weight: 600;
+      font-size: 0.9rem;
+      padding: 0.7rem 1.6rem;
+      border-radius: var(--radius-btn);
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .btn-primary:hover {
+      background: #e8b06b;
+      transform: translateY(-1px);
+    }
+
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: transparent;
+      color: #fff;
+      font-weight: 500;
+      font-size: 0.9rem;
+      padding: 0.7rem 1.6rem;
+      border-radius: var(--radius-btn);
+      border: 1px solid rgba(255,255,255,0.3);
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .btn-ghost:hover {
+      border-color: rgba(255,255,255,0.7);
+      background: rgba(255,255,255,0.06);
+    }
+
+    /* ---------- 主容器 ---------- */
+    .main-container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 2rem 1.5rem 3rem;
+      display: grid;
+      grid-template-columns: 180px 1fr 260px;
+      gap: 2rem;
+      align-items: start;
+    }
+
+    /* ---------- 左频道索引 ---------- */
+    .channel-sidebar {
+      position: sticky;
+      top: calc(var(--total-sticky) + 1.5rem);
+      background: var(--surface);
+      border-radius: var(--radius-card);
+      box-shadow: var(--shadow-default);
+      padding: 1.25rem 1rem;
+    }
+
+    .channel-sidebar h2 {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-tertiary);
+      margin-bottom: 0.9rem;
+      font-weight: 600;
+    }
+
+    .channel-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
+    }
+
+    .channel-list a {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 0.6rem;
+      border-radius: var(--radius-btn);
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      transition: background 0.15s, color 0.15s;
+    }
+
+    .channel-list a:hover {
+      background: var(--bg);
+      color: var(--primary);
+    }
+
+    .channel-list a.active {
+      background: var(--primary);
+      color: #fff;
+    }
+
+    .channel-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .channel-list a.active .channel-dot {
+      background: var(--accent-light);
+    }
+
+    /* ---------- 中间主内容 ---------- */
+    .main-content {
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+      min-width: 0;
+    }
+
+    .section {
+      background: var(--surface);
+      border-radius: var(--radius-card);
+      box-shadow: var(--shadow-default);
+      padding: 1.75rem 1.5rem;
+      transition: box-shadow 0.2s;
+    }
+
+    .section:hover {
+      box-shadow: var(--shadow-hover);
+    }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 1.25rem;
+      gap: 1rem;
+    }
+
+    .section-header h2 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--primary);
+      letter-spacing: -0.01em;
+    }
+
+    .section-header .section-link {
+      font-size: 0.8rem;
+      color: var(--text-tertiary);
+      white-space: nowrap;
+      transition: color 0.15s;
+    }
+
+    .section-header .section-link:hover {
+      color: var(--accent);
+    }
+
+    /* 概览段落 */
+    .overview-text {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      line-height: 1.75;
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+    }
+
+    .overview-text p {
+      margin: 0;
+    }
+
+    .overview-text strong {
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    /* 精选卡片网格 */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1rem;
+    }
+
+    .card {
+      background: var(--bg);
+      border-radius: var(--radius-card);
+      overflow: hidden;
+      transition: transform 0.2s, box-shadow 0.2s;
+      display: flex;
+      flex-direction: column;
+      border: 1px solid transparent;
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-hover);
+      border-color: var(--border);
+    }
+
+    .card-img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      background: var(--border);
+    }
+
+    .card-body {
+      padding: 0.9rem 1rem 1.1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+      flex: 1;
+    }
+
+    .card-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      line-height: 1.35;
+    }
+
+    .card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.3rem;
+    }
+
+    .tag {
+      font-size: 0.7rem;
+      background: var(--accent-light);
+      color: var(--primary-dark);
+      padding: 0.15rem 0.5rem;
+      border-radius: var(--radius-tag);
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+    .tag-outline {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text-secondary);
+    }
+
+    .card-desc {
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+      line-height: 1.55;
+      flex: 1;
+    }
+
+    .card-meta {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.7rem;
+      color: var(--text-tertiary);
+      margin-top: 0.25rem;
+      border-top: 1px solid var(--border);
+      padding-top: 0.5rem;
+    }
+
+    /* 最新更新列表 */
+    .update-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.1rem;
+    }
+
+    .update-item {
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+      padding: 0.65rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.9rem;
+    }
+
+    .update-item:last-child {
+      border-bottom: none;
+    }
+
+    .update-date {
+      font-size: 0.72rem;
+      color: var(--text-tertiary);
+      white-space: nowrap;
+      flex-shrink: 0;
+      width: 60px;
+    }
+
+    .update-title {
+      font-weight: 500;
+      color: var(--text-primary);
+      flex-shrink: 0;
+    }
+
+    .update-summary {
+      color: var(--text-secondary);
+      font-size: 0.82rem;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    /* 分类入口 */
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.75rem;
+    }
+
+    .category-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.35rem;
+      padding: 0.9rem 0.5rem;
+      background: var(--bg);
+      border-radius: var(--radius-btn);
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      transition: background 0.15s, color 0.15s;
+      text-align: center;
+    }
+
+    .category-item:hover {
+      background: var(--primary);
+      color: #fff;
+    }
+
+    .category-icon {
+      font-size: 1.2rem;
+      line-height: 1;
+    }
+
+    /* 深度解析 */
+    .deep-dive h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-top: 1.5rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .deep-dive h3:first-of-type {
+      margin-top: 0;
+    }
+
+    .deep-dive p {
+      font-size: 0.92rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: 0.75rem;
+    }
+
+    .deep-dive ul {
+      margin: 0.5rem 0 1rem 1.25rem;
+      list-style: disc;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    .deep-dive li {
+      margin-bottom: 0.3rem;
+    }
+
+    .deep-dive .callout {
+      background: var(--bg);
+      border-left: 3px solid var(--accent);
+      padding: 0.75rem 1rem;
+      border-radius: 0 var(--radius-btn) var(--radius-btn) 0;
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      margin: 1rem 0;
+    }
+
+    /* 体验指南 */
+    .guide-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .guide-step {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+
+    .guide-num {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.8rem;
+      flex-shrink: 0;
+      margin-top: 0.1rem;
+    }
+
+    .guide-content h4 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 0.2rem;
+    }
+
+    .guide-content p {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    /* FAQ */
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .faq-item {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-btn);
+      overflow: hidden;
+    }
+
+    .faq-item summary {
+      padding: 0.75rem 1rem;
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--text-primary);
+      background: var(--bg);
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background 0.15s;
+    }
+
+    .faq-item summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .faq-item summary::after {
+      content: '+';
+      font-size: 1rem;
+      color: var(--text-tertiary);
+      transition: transform 0.2s;
+    }
+
+    .faq-item[open] summary::after {
+      content: '−';
+    }
+
+    .faq-item summary:hover {
+      background: #f0ece5;
+    }
+
+    .faq-answer {
+      padding: 0.75rem 1rem 1rem;
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      background: var(--surface);
+    }
+
+    /* 评论 */
+    .comment-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .comment-item {
+      display: flex;
+      gap: 0.6rem;
+      padding: 0.6rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .comment-item:last-child {
+      border-bottom: none;
+    }
+
+    .comment-avatar {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--accent-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.7rem;
+      color: var(--primary-dark);
+      flex-shrink: 0;
+    }
+
+    .comment-body {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .comment-user {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 0.1rem;
+    }
+
+    .comment-text {
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+      line-height: 1.55;
+    }
+
+    /* 资讯 */
+    .news-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .news-item {
+      display: flex;
+      gap: 0.75rem;
+      align-items: flex-start;
+    }
+
+    .news-date {
+      font-size: 0.72rem;
+      color: var(--text-tertiary);
+      white-space: nowrap;
+      flex-shrink: 0;
+      width: 62px;
+      margin-top: 0.1rem;
+    }
+
+    .news-content h4 {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 0.15rem;
+    }
+
+    .news-summary {
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+      line-height: 1.55;
+    }
+
+    /* 相关推荐标签 */
+    .tag-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .tag-link {
+      font-size: 0.8rem;
+      padding: 0.3rem 0.8rem;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      color: var(--text-secondary);
+      transition: background 0.15s, border-color 0.15s, color 0.15s;
+    }
+
+    .tag-link:hover {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: #fff;
+    }
+
+    /* 补充板块：榜单 */
+    .ranking-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+
+    .ranking-item {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.45rem 0;
+      font-size: 0.88rem;
+    }
+
+    .ranking-num {
+      width: 20px;
+      font-weight: 700;
+      color: var(--accent);
+      font-size: 0.85rem;
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    .ranking-title {
+      flex: 1;
+      color: var(--text-primary);
+    }
+
+    .ranking-score {
+      font-size: 0.75rem;
+      color: var(--text-tertiary);
+    }
+
+    /* ---------- 右侧辅助栏 ---------- */
+    .sidebar-right {
+      position: sticky;
+      top: calc(var(--total-sticky) + 1.5rem);
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .sidebar-card {
+      background: var(--surface);
+      border-radius: var(--radius-card);
+      box-shadow: var(--shadow-default);
+      padding: 1.1rem 1rem;
+    }
+
+    .sidebar-card h3 {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-tertiary);
+      margin-bottom: 0.8rem;
+      font-weight: 600;
+    }
+
+    .sidebar-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+    }
+
+    .sidebar-list li {
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+      display: flex;
+      justify-content: space-between;
+      gap: 0.5rem;
+    }
+
+    .sidebar-list .hot-tag {
+      color: var(--accent);
+      font-weight: 600;
+      font-size: 0.7rem;
+      flex-shrink: 0;
+    }
+
+    .update-feed {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .update-feed-item {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    .update-feed-item time {
+      display: block;
+      font-size: 0.68rem;
+      color: var(--text-tertiary);
+      margin-top: 0.1rem;
+    }
+
+    /* ---------- 页脚 ---------- */
+    .site-footer {
+      background: var(--primary-dark);
+      color: rgba(255, 255, 255, 0.65);
+      padding: 2.5rem 1.5rem 2rem;
+      font-size: 0.82rem;
+    }
+
+    .footer-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 2rem;
+    }
+
+    .footer-brand {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .footer-brand .logo-text {
+      color: #fff;
+      font-size: 1.1rem;
+    }
+
+    .footer-desc {
+      line-height: 1.7;
+      color: rgba(255, 255, 255, 0.5);
+      max-width: 300px;
+    }
+
+    .footer-col h4 {
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      letter-spacing: 0.04em;
+    }
+
+    .footer-col ul {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .footer-col a {
+      color: rgba(255, 255, 255, 0.5);
+      transition: color 0.15s;
+    }
+
+    .footer-col a:hover {
+      color: var(--accent);
+    }
+
+    .footer-bottom {
+      max-width: var(--max-width);
+      margin: 2rem auto 0;
+      padding-top: 1.25rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      font-size: 0.75rem;
+      color: rgba(255, 255, 255, 0.35);
+    }
+
+    /* ---------- 回到顶部 ---------- */
+    .back-to-top {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow-hover);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.25s, visibility 0.25s, transform 0.2s;
+      z-index: 90;
+      font-size: 1.1rem;
+    }
+
+    .back-to-top.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .back-to-top:hover {
+      transform: translateY(-2px);
+      background: var(--primary-light);
+    }
+
+    /* ---------- 响应式 ---------- */
+    @media (max-width: 1024px) {
+      .main-container {
+        grid-template-columns: 1fr 260px;
+      }
+
+      .channel-sidebar {
+        display: none;
+      }
+
+      .footer-inner {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 740px) {
+      .main-container {
+        grid-template-columns: 1fr;
+        padding: 1.25rem 1rem 2rem;
+      }
+
+      .sidebar-right {
+        position: static;
+        order: 2;
+      }
+
+      .main-content {
+        order: 1;
+      }
+
+      .main-nav {
+        display: none;
+      }
+
+      .search-box {
+        display: none;
+      }
+
+      .search-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        height: 32px;
+        color: var(--text-secondary);
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      .hero {
+        padding: 2.5rem 1rem 2rem;
+      }
+
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+
+      .hero-desc {
+        font-size: 0.92rem;
+      }
+
+      .card-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .category-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .update-item {
+        flex-wrap: wrap;
+        gap: 0.15rem 0.5rem;
+      }
+
+      .update-summary {
+        white-space: normal;
+        width: 100%;
+      }
+
+      .footer-inner {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .back-to-top {
+        bottom: 1rem;
+        right: 1rem;
+      }
+
+      .announcement-inner {
+        gap: 0.75rem;
+        font-size: 0.72rem;
+      }
+
+      .section {
+        padding: 1.25rem 1rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
+    /* 移动端菜单（简单展示，未展开时隐藏） */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: var(--total-sticky);
+      left: 0;
+      right: 0;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 1.5rem;
+      z-index: 98;
+      box-shadow: var(--shadow-hover);
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .mobile-menu.open {
+      display: flex;
+    }
+
+    .mobile-menu a {
+      padding: 0.5rem 0;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .mobile-menu a:last-child {
+      border-bottom: none;
+    }
+
+    /* 搜索无结果提示 */
+    .no-results {
+      display: none;
+      padding: 1rem;
+      text-align: center;
+      color: var(--text-tertiary);
+      font-size: 0.85rem;
+      background: var(--bg);
+      border-radius: var(--radius-btn);
+    }
+  </style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+  <!-- 吸顶公告条 -->
+  <div class="announcement-bar">
+    <div class="announcement-inner">
+      <span class="announcement-brand">tk挠澳门映画vk</span>
+      <span class="announcement-sep"></span>
+      <span class="announcement-item">
+        <span class="announcement-date">2026-11-08</span>
+        <span>《妈阁夜雨》导演剪辑版上线</span>
+      </span>
+      <span class="announcement-sep"></span>
+      <span class="announcement-item">
+        <span class="announcement-date">2026-11-06</span>
+        <span>短片征集「镜海回响」收到 47 份投稿</span>
+      </span>
+      <span class="announcement-sep"></span>
+      <span class="announcement-item">
+        <span class="announcement-date">2026-11-03</span>
+        <span>映画榜单更新：剧情长片 TOP10</span>
+      </span>
+    </div>
+  </div>
+
+  <!-- 吸顶页头 -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="logo-area">
+        <svg class="logo-svg" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="2" y="8" width="30" height="20" rx="3" fill="var(--primary)" />
+          <rect x="5" y="11" width="10" height="4" rx="1" fill="var(--accent-light)" opacity="0.8" />
+          <rect x="5" y="17" width="14" height="2" rx="1" fill="var(--accent-light)" opacity="0.5" />
+          <rect x="5" y="21" width="8" height="2" rx="1" fill="var(--accent-light)" opacity="0.5" />
+          <circle cx="25" cy="16" r="5" fill="var(--accent)" opacity="0.9" />
+          <circle cx="25" cy="16" r="2" fill="var(--primary-dark)" />
+        </svg>
+        <span class="logo-text">tk挠澳门映画vk</span>
+      </div>
+      <nav class="main-nav">
+        <a href="#overview">领域概览</a>
+        <a href="#featured">精选推荐</a>
+        <a href="#updates">最新更新</a>
+        <a href="#categories">分类入口</a>
+        <a href="#deep-dive">深度解析</a>
+        <a href="#guide">体验指南</a>
+        <a href="#faq">常见问答</a>
+        <a href="#comments">用户评论</a>
+        <a href="#news">相关资讯</a>
+        <a href="#recommendations">相关推荐</a>
+        <a href="#ranking">热门榜单</a>
+      </nav>
+      <div class="header-actions">
+        <div class="search-box">
+          <input type="text" id="searchInput" placeholder="搜索条目…" aria-label="搜索内容">
+          <button id="searchBtn" aria-label="搜索">⌕</button>
+        </div>
+        <button class="search-toggle" id="searchToggle" aria-label="打开搜索">⌕</button>
+        <button class="hamburger" id="hamburgerBtn" aria-label="菜单" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- 移动端菜单 -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#overview">领域概览</a>
+    <a href="#featured">精选推荐</a>
+    <a href="#updates">最新更新</a>
+    <a href="#categories">分类入口</a>
+    <a href="#deep-dive">深度解析</a>
+    <a href="#guide">体验指南</a>
+    <a href="#faq">常见问答</a>
+    <a href="#comments">用户评论</a>
+    <a href="#news">相关资讯</a>
+    <a href="#recommendations">相关推荐</a>
+    <a href="#ranking">热门榜单</a>
+  </div>
+
+  <!-- 首屏 -->
+  <section class="hero">
+    <div class="hero-inner">
+      <h1>tk挠澳门映画vk</h1>
+      <p class="hero-desc">聚合澳门剧情长片、纪录片、短片与综艺内容，覆盖妈阁取景作品、本地导演新作、影展入围动态，以及观众对具体条目的讨论与评分。</p>
+      <div class="hero-actions">
+        <a href="#featured" class="btn-primary">浏览精选条目 →</a>
+        <a href="#deep-dive" class="btn-ghost">深度解析</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 主容器 -->
+  <div class="main-container">
+    <!-- 左侧频道索引 -->
+    <aside class="channel-sidebar">
+      <h2>频道</h2>
+      <div class="channel-list">
+        <a href="#featured" class="active"><span class="channel-dot"></span>剧情长片</a>
+        <a href="#featured"><span class="channel-dot"></span>纪录片</a>
+        <a href="#featured"><span class="channel-dot"></span>短片</a>
+        <a href="#featured"><span class="channel-dot"></span>综艺</a>
+        <a href="#featured"><span class="channel-dot"></span>导演专访</a>
+        <a href="#featured"><span class="channel-dot"></span>影展动态</a>
+        <a href="#featured"><span class="channel-dot"></span>幕后花絮</a>
+        <a href="#featured"><span class="channel-dot"></span>取景地</a>
+      </div>
+    </aside>
+
+    <!-- 中间主内容 -->
+    <main class="main-content">
+      <!-- 1. 主题领域概览 -->
+      <section class="section" id="overview">
+        <div class="section-header">
+          <h2>澳门影像内容版图</h2>
+        </div>
+        <div class="overview-text">
+          <p>澳门电影产量不大，但近年出现了一批以妈阁庙、路环渔村、新马路骑楼为背景的作品。2026 年 10 月至 11 月间，至少有 4 部剧情长片和 7 部短片在澳门或香港完成首映，其中《妈阁夜雨》导演剪辑版在 11 月 8 日上线流媒体，片长比院线版多出 23 分钟。</p>
+          <p>纪录片方向，本地创作者围绕荔枝碗船厂、沙梨头街市等地点拍摄的短片在“镜海回响”征集活动中集中出现。综艺类内容以美食探店和街区游戏为主，《澳门食住玩》第三季在 10 月 30 日收官，最后一集走访了氹仔三家老店。</p>
+          <p>影展方面，2026 年澳门国际短片节于 10 月 18 日公布入围名单，华语短片单元共 15 部作品，其中 6 部为澳门导演作品。导演专访和幕后花絮类内容集中在 10 月下旬更新，涉及《十字门》的摄影指导和《荔枝碗往事》的剪辑过程。</p>
+        </div>
+      </section>
+
+      <!-- 2. 精选内容推荐 -->
+      <section class="section" id="featured">
+        <div class="section-header">
+          <h2>精选条目</h2>
+          <a href="#updates" class="section-link">查看全部 →</a>
+        </div>
+        <div class="card-grid">
+          <article class="card">
+            <img class="card-img" src="https://picsum.photos/seed/macaufilm01/400/300" alt="《妈阁夜雨》导演剪辑版海报" width="400" height="300" loading="lazy">
+            <div class="card-body">
+              <h3 class="card-title">《妈阁夜雨》导演剪辑版</h3>
+              <div class="card-tags"><span class="tag">剧情长片</span><span class="tag tag-outline">澳门取景</span></div>
+              <p class="card-desc">比院线版多出 23 分钟，补充了妈阁庙石阶上的一场对峙戏。导演在 11 月 6 日的专访中解释这段戏为何被剪掉又放回。</p>
+              <div class="card-meta"><span>评分 8.2</span><span>更新于 11-08</span></div>
+            </div>
+          </article>
+          <article class="card">
+            <img class="card-img" src="https://picsum.photos/seed/macaudoc02/400/300" alt="纪录片《荔枝碗往事》船厂场景" width="400" height="300" loading="lazy">
+            <div class="card-body">
+              <h3 class="card-title">《荔枝碗往事》</h3>
+              <div class="card-tags"><span class="tag">纪录片</span><span class="tag tag-outline">船厂记忆</span></div>
+              <p class="card-desc">记录路环荔枝碗船厂最后一批工匠的日常，片长 48 分钟。10 月 25 日在澳门艺术博物馆放映，映后谈提到 1960 年代的造船订单。</p>
+              <div class="card-meta"><span>评分 7.9</span><span>更新于 10-25</span></div>
+            </div>
+          </article>
+          <article class="card">
+            <img class="card-img" src="https://picsum.photos/seed/macaushort03/400/300" alt="短片《十字门》剧照" width="400" height="300" loading="lazy">
+            <div class="card-body">
+              <h3 class="card-title">《十字门》短片</h3>
+              <div class="card-tags"><span class="tag">短片</span><span class="tag tag-outline">影展入围</span></div>
+              <p class="card-desc">入围 2026 澳门国际短片节华语单元，讲述横琴与澳门之间通勤者的 24 小时。导演陈子谦，摄影指导为《夜雨》的同一人。</p>
+              <div class="card-meta"><span>评分 7.5</span><span>更新于 10-18</span></div>
+            </div>
+          </article>
+          <article class="card">
+            <img class="card-img" src="https://picsum.photos/seed/macauvariety04/400/300" alt="《澳门食住玩》第三季收官画面" width="400" height="300" loading="lazy">
+            <div class="card-body">
+              <h3 class="card-title">《澳门食住玩》第三季</h3>
+              <div class="card-tags"><span class="tag">综艺</span><span class="tag tag-outline">美食探店</span></div>
+              <p class="card-desc">10 月 30 日收官集走访氹仔三家老店，包括有 40 年历史的猪扒包摊。主持人与店主聊到 1990 年代的顾客习惯。</p>
+              <div class="card-meta"><span>评分 7.3</span><span>更新于 10-30</span></div>
+            </div>
+          </article>
+          <article class="card">
+            <img class="card-img" src="https://picsum.photos/seed/macauinterview05/400/300" alt="导演劳嘉怡专访现场" width="400" height="300" loading="lazy">
+            <div class="card-body">
+              <h3 class="card-title">劳嘉怡专访：从《窗》到《妈阁夜雨》</h3>
+              <div class="card-tags"><span class="tag">导演专访</span><span class="tag tag-outline">创作谈</span></div>
+              <p class="card-desc">劳嘉怡在 11 月 6 日访谈中谈到，片中雨景多数是实拍，只有两场用了人工降雨。她提到 2019 年写的第一稿结局与现在完全不同。</p>
+              <div class="card-meta"><span>阅读 2.3k</span><span>更新于 11-06</span></div>
+            </div>
+          </article>
+          <article class="card">
+            <img class="card-img" src="https://picsum.photos/seed/macaufestival06/400/300" alt="澳门国际短片节入围名单发布" width="400" height="300" loading="lazy">
+            <div class="card-body">
+              <h3 class="card-title">2026 澳门国际短片节入围名单</h3>
+              <div class="card-tags"><span class="tag">影展动态</span><span class="tag tag-outline">短片竞赛</span></div>
+              <p class="card-desc">10 月 18 日公布，华语单元 15 部入围作品中 6 部来自澳门导演。评审包括《春光乍泄》的剪辑师张叔平。</p>
+              <div class="card-meta"><span>评分 —</span><span>更新于 10-18</span></div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- 3. 最新更新 -->
+      <section class="section" id="updates">
+        <div class="section-header">
+          <h2>最新更新与动态</h2>
+          <a href="#news" class="section-link">更多资讯 →</a>
+        </div>
+        <div class="update-list">
+          <div class="update-item">
+            <span class="update-date">11-08</span>
+            <span class="update-title">《妈阁夜雨》导演剪辑版</span>
+            <span class="update-summary">上线流媒体，新增 23 分钟内容，包括妈阁庙对峙戏和一段 8 分钟的独白。</span>
+          </div>
+          <div class="update-item">
+            <span class="update-date">11-07</span>
+            <span class="update-title">《十字门》映后谈</span>
+            <span class="update-summary">导演陈子谦在澳门文化中心提到，片中有 12 分钟为横琴通勤者实拍，非演员。</span>
+          </div>
+          <div class="update-item">
+            <span class="update-date">11-05</span>
+            <span class="update-title">「镜海回响」短片征集</span>
+            <span class="update-summary">收到 47 份投稿，其中 31 份围绕荔枝碗、沙梨头等地点，评审结果 12 月公布。</span>
+          </div>
+          <div class="update-item">
+            <span class="update-date">11-03</span>
+            <span class="update-title">映画榜单剧情长片 TOP10</span>
+            <span class="update-summary">《妈阁夜雨》从第 4 升至第 2，《荔枝碗往事》新入榜第 7。</span>
+          </div>
+          <div class="update-item">
+            <span class="update-date">10-30</span>
+            <span class="update-title">《澳门食住玩》第三季收官</span>
+            <span class="update-summary">最后一集探访氹仔三家老店，其中一家猪扒包摊 1986 年开业。</span>
+          </div>
+          <div class="update-item">
+            <span class="update-date">10-28</span>
+            <span class="update-title">《夜雨》摄影指导专访</span>
+            <span class="update-summary">梁志强谈雨戏拍摄：多数为实拍，两场人工降雨在路环码头完成。</span>
+          </div>
+          <div class="update-item">
+            <span class="update-date">10-25</span>
+            <span class="update-title">《荔枝碗往事》放映</span>
+            <span class="update-summary">澳门艺术博物馆映后谈提到 1960 年代船厂订单，现场有 3 位前船厂工人出席。</span>
+          </div>
+          <div class="update-item">
+            <span class="update-date">10-22</span>
+            <span class="update-title">《澳门影像地图》第三期</span>
+            <span class="update-summary">新增 6 个取景地坐标，包括新马路骑楼和路环码头。</span>
+          </div>
+          <div class="update-item">
+            <span class="update-date">10-18</span>
+            <span class="update-title">短片节入围名单公布</span>
+            <span class="update-summary">华语单元 15 部入围，6 部为澳门导演作品，评审含张叔平。</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. 分类入口 -->
+      <section class="section" id="categories">
+        <div class="section-header">
+          <h2>按类型查找</h2>
+        </div>
+        <div class="category-grid">
+          <a href="#featured" class="category-item"><span class="category-icon">🎬</span>剧情长片</a>
+          <a href="#featured" class="category-item"><span class="category-icon">📹</span>纪录片</a>
+          <a href="#featured" class="category-item"><span class="category-icon">🎞️</span>短片</a>
+          <a href="#featured" class="category-item"><span class="category-icon">📺</span>综艺</a>
+          <a href="#featured" class="category-item"><span class="category-icon">🎤</span>导演专访</a>
+          <a href="#featured" class="category-item"><span class="category-icon">🏆</span>影展动态</a>
+          <a href="#featured" class="category-item"><span class="category-icon">🎥</span>幕后花絮</a>
+          <a href="#featured" class="category-item"><span class="category-icon">📍</span>取景地</a>
+        </div>
+      </section>
+
+      <!-- 5. 深度解析 -->
+      <section class="section deep-dive" id="deep-dive">
+        <div class="section-header">
+          <h2>澳门影像的三条脉络：实景、记忆与通勤</h2>
+        </div>
+        <h3>实景拍摄带来的质感与限制</h3>
+        <p>《妈阁夜雨》全片 87 分钟，其中约 60 分钟在妈阁庙及周边街道实拍。导演劳嘉怡在 11 月 6 日访谈中透露，剧组只有两个下午获得庙内拍摄许可，每天不超过 4 小时。成片里石阶对峙那场戏，演员走位与香客路线重叠，现场收音里能听到签筒声。这种限制反而被保留进剪辑版——院线版删掉的 23 分钟里，有 8 分钟是庙内连续镜头，没有配乐，只有环境声。</p>
+        <p>实景拍摄的代价也明确：灯光设备无法进入主殿，夜戏只能靠灯笼和反射板。摄影指导梁志强在 10 月 28 日专访中算过一笔账：相同夜戏在摄影棚完成需要 3 天，实景用了 7 天，但“质感不一样，墙上的青苔是长在那里的”。</p>
+        <div class="callout">可核对的时间线：10 月 18 日短片节入围公布 → 10 月 25 日《荔枝碗往事》放映 → 10 月 28 日摄影指导专访 → 11 月 6 日导演专访 → 11 月 8 日导演剪辑版上线。</div>
+
+        <h3>纪录片对“消失地点”的处理方式</h3>
+        <p>《荔枝碗往事》用 48 分钟记录路环船厂最后一批工匠。片中出现 9 位受访者，其中 3 位在 10 月 25 日映后谈现场。导演没有使用旁白，靠工匠口述和现场声推进。一个被多次提及的细节：1968 年船厂接到一张 12 艘渔船的订单，工期 8 个月，最后延期 3 个月交付。这个数字来自其中一位工匠的账本，片中给了账本特写。</p>
+        <p>与《妈阁夜雨》不同，纪录片里的地点已经部分消失——船厂棚屋在 2020 年后拆除了两间。画面中的空地和锈蚀铁皮，与 2019 年游客拍的照片形成对照。这种对照没有用对比镜头呈现，而是靠观众自己回忆。一位豆瓣用户在 10 月 26 日的评论里写：“看到第三间棚屋的位置，想起 2018 年在那拍过照。”</p>
+
+        <h3>短片中的通勤叙事为何集中出现</h3>
+        <p>2026 年短片节入围的 6 部澳门导演作品中，有 3 部涉及横琴与澳门之间的通勤。《十字门》拍了一个每天往返两地的装修工人，全片 22 分钟，其中 12 分钟为跟拍。导演陈子谦在 11 月 7 日映后谈说，他跟着这位工人走了 6 趟，最终只用了其中两趟的素材。另外两部短片分别聚焦跨境学童和夜间代驾。</p>
+        <p>这类题材集中出现，与 2025 年横琴口岸新通关模式启用后的日常变化有关。具体到《十字门》，片中有一段工人从横琴口岸走到澳门的连续镜头，实际耗时 18 分钟，成片用 2 分 40 秒呈现。陈子谦解释：“剪掉的是等车和填表，留下的是走路。”观众可以核对：同样的路线在 2026 年 10 月的周末，实测步行时间为 16 分钟。</p>
+        <div class="callout">事实层级：导演在映后谈的发言（当事人回应）与实测时间（可核对数据）分开呈现，不混为同一来源。</div>
+      </section>
+
+      <!-- 6. 体验指南 -->
+      <section class="section" id="guide">
+        <div class="section-header">
+          <h2>观看顺序与判断依据</h2>
+        </div>
+        <div class="guide-steps">
+          <div class="guide-step">
+            <div class="guide-num">1</div>
+            <div class="guide-content">
+              <h4>先看实景拍摄的剧情长片</h4>
+              <p>《妈阁夜雨》导演剪辑版 11 月 8 日上线，适合作为入口。院线版 87 分钟，剪辑版 110 分钟，多出的 23 分钟集中在庙内场景。如果对澳门街道熟悉，能辨认出福隆新街和亚婆井前地。</p>
+            </div>
+          </div>
+          <div class="guide-step">
+            <div class="guide-num">2</div>
+            <div class="guide-content">
+              <h4>纪录片按地点选，不按评分选</h4>
+              <p>《荔枝碗往事》适合对船厂工业史感兴趣的人；如果更关心街市生态，可以等 11 月下旬的《沙梨头早晨》，目前只有 3 分钟片段在影展放映过。评分 7.9 和 7.5 的纪录片差距不在质量，在题材是否对胃口。</p>
+            </div>
+          </div>
+          <div class="guide-step">
+            <div class="guide-num">3</div>
+            <div class="guide-content">
+              <h4>短片优先看入围影展的版本</h4>
+              <p>《十字门》在短片节放映的是 22 分钟版，线上平台 11 月 15 日会放出 18 分钟版，剪掉了两段通勤路上的空镜。如果想看完整跟拍素材，等导演后续放出的幕后花絮。短片节评审张叔平在 10 月 18 日发布会上提到，他给《十字门》的评分依据是“剪辑点是否藏在动作里”。</p>
+            </div>
+          </div>
+          <div class="guide-step">
+            <div class="guide-num">4</div>
+            <div class="guide-content">
+              <h4>综艺当背景音，但注意具体店名</h4>
+              <p>《澳门食住玩》第三季收官集提到的三家店：氹仔旧城区猪扒包摊（1986 年开业）、官也街雪糕店（1992 年）、路环咖啡室（2005 年）。节目没有给地址，只给了街景。如果按图索骥，第三家在路环码头附近，下午 3 点后排队较短。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 7. FAQ -->
+      <section class="section" id="faq">
+        <div class="section-header">
+          <h2>常见问答</h2>
+        </div>
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary>《妈阁夜雨》导演剪辑版和院线版差在哪里？</summary>
+            <div class="faq-answer">剪辑版多出 23 分钟，集中在妈阁庙石阶对峙戏（约 8 分钟）和片尾独白（约 10 分钟），另有 5 分钟分散在路环码头场景。院线版删掉对峙戏的原因是导演认为“当时情绪太满”，后来在 2026 年 9 月重看素材时决定放回。</div>
+          </details>
+          <details class="faq-item">
+            <summary>《十字门》短片在哪里能看到完整版？</summary>
+            <div class="faq-answer">2026 年 11 月 15 日起在澳门影像资料馆线上平台提供 18 分钟版，比短片节放映的 22 分钟版少两段通勤空镜。完整 22 分钟版只在 10 月 18 日和 11 月 7 日的两场放映中出现过，暂无线上计划。</div>
+          </details>
+          <details class="faq-item">
+            <summary>“镜海回响”短片征集的结果什么时候公布？</summary>
+            <div class="faq-answer">2026 年 12 月 10 日公布入围名单，共 47 份投稿中选出 12 份。评审包括《荔枝碗往事》导演和澳门文化局代表。投稿中 31 份以荔枝碗、沙梨头、新马路为拍摄地点。</div>
+          </details>
+          <details class="faq-item">
+            <summary>《荔枝碗往事》里提到的 1968 年船厂订单是真的吗？</summary>
+            <div class="faq-answer">片中出现的账本由其中一位受访工匠保存，记录了 1968 年 3 月接到 12 艘渔船订单、工期 8 个月、实际交付延期 3 个月。账本原件在 10 月 25 日映后谈现场展示过，导演拍摄了其中 4 页特写。</div>
+          </details>
+          <details class="faq-item">
+            <summary>澳门国际短片节的评审张叔平给了《十字门》什么评价？</summary>
+            <div class="faq-answer">在 10 月 18 日入围发布会上，张叔平提到《十字门》的剪辑点处理，原话是“剪辑点藏在动作里，观众注意不到切点”。他没有给具体分数，只说“入围是五位评审共同决定”。</div>
+          </details>
+          <details class="faq-item">
+            <summary>《澳门食住玩》第三季收官集那三家店具体在哪？</summary>
+            <div class="faq-answer">节目只给了街景没有地址。猪扒包摊在氹仔旧城区官也街与地堡街交界附近，1986 年开业；雪糕店在官也街主街，1992 年开业；咖啡室在路环码头对面，2005 年开业。第三家下午 3 点后排队较短。</div>
+          </details>
+        </div>
+      </section>
+
+      <!-- 8. 用户评论 -->
+      <section class="section" id="comments">
+        <div class="section-header">
+          <h2>观众评论</h2>
+        </div>
+        <div class="comment-list">
+          <div class="comment-item">
+            <div class="comment-avatar">M</div>
+            <div class="comment-body">
+              <div class="comment-user">MacauFilmFan</div>
+              <div class="comment-text">导演剪辑版石阶那场戏，香客签筒声太真实了。院线版剪掉可惜，但也能理解当时为什么觉得“太满”。</div>
+            </div>
+          </div>
+          <div class="comment-item">
+            <div class="comment-avatar">L</div>
+            <div class="comment-body">
+              <div class="comment-user">荔枝碗街坊</div>
+              <div class="comment-text">《荔枝碗往事》里第三个受访的阿伯我认识，他以前在船厂做木工。账本那页拍得清楚，数字对得上。</div>
+            </div>
+          </div>
+          <div class="comment-item">
+            <div class="comment-avatar">C</div>
+            <div class="comment-body">
+              <div class="comment-user">Cinema_Cross</div>
+              <div class="comment-text">《十字门》18 分钟版和 22 分钟版都看了。少掉的两段空镜其实挺有味道，但 18 分钟节奏更紧。</div>
+            </div>
+          </div>
+          <div class="comment-item">
+            <div class="comment-avatar">W</div>
+            <div class="comment-body">
+              <div class="comment-user">路环阿Wing</div>
+              <div class="comment-text">综艺收官集那家猪扒包摊，我小时候住附近。1986 年开业没错，但那时候只卖面包不卖猪扒包，猪扒包是 90 年代才加的。</div>
+            </div>
+          </div>
+          <div class="comment-item">
+            <div class="comment-avatar">J</div>
+            <div class="comment-body">
+              <div class="comment-user">John_看戏</div>
+              <div class="comment-text">张叔平说剪辑点藏在动作里，这话听着玄。但《十字门》里工人走过口岸那段确实没感觉到切点。</div>
+            </div>
+          </div>
+          <div class="comment-item">
+            <div class="comment-avatar">S</div>
+            <div class="comment-body">
+              <div class="comment-user">Sandy_Macau</div>
+              <div class="comment-text">短片节入围的 6 部澳门作品，有三部讲通勤，题材撞得有点厉害。不过《十字门》拍得最细。</div>
+            </div>
+          </div>
+          <div class="comment-item">
+            <div class="comment-avatar">K</div>
+            <div class="comment-body">
+              <div class="comment-user">Kiko在路环</div>
+              <div class="comment-text">《澳门食住玩》第三季比前两季好，探店部分没有硬植入。收官集雪糕店那家我上周去了，排队 20 分钟。</div>
+            </div>
+          </div>
+          <div class="comment-item">
+            <div class="comment-avatar">A</div>
+            <div class="comment-body">
+              <div class="comment-user">阿坚_电影笔记</div>
+              <div class="comment-text">劳嘉怡说“两场人工降雨在路环码头”，我记得那天路过看到水管。实拍成本高但质感确实好。</div>
+            </div>
+          </div>
+          <div class="comment-item">
+            <div class="comment-avatar">F</div>
+            <div class="comment-body">
+              <div class="comment-user">Fiona_Film</div>
+              <div class="comment-text">纪录片评分 7.9 和 7.5 差 0.4 分，其实题材差很多。《荔枝碗》讲消失，《沙梨头早晨》还没上映，没法比。</div>
+            </div>
+          </div>
+          <div class="comment-item">
+            <div class="comment-avatar">T</div>
+            <div class="comment-body">
+              <div class="comment-user">Tommy_澳门</div>
+              <div class="comment-text">有没有人觉得《妈阁夜雨》院线版结局更好？剪辑版独白太长了，10 分钟我快进了两次。</div>
+            </div>
+          </div>
+          <div class="comment-item">
+            <div class="comment-avatar">R</div>
+            <div class="comment-body">
+              <div class="comment-user">Rita_看展</div>
+              <div class="comment-text">10 月 25 日《荔枝碗》映后谈去了现场，三位前船厂工人年纪都 70 多了，讲话很慢但信息多。</div>
+            </div>
+          </div>
+          <div class="comment-item">
+            <div class="comment-avatar">B</div>
+            <div class="comment-body">
+              <div class="comment-user">Benny_影迷</div>
+              <div class="comment-text">“镜海回响”投稿 47 份，我朋友投了一部，说截止前一天系统卡了三小时。希望评审别只看题材。</div>
+            </div>
+          </div>
+          <div class="comment-item">
+            <div class="comment-avatar">Y</div>
+            <div class="comment-body">
+              <div class="comment-user">Yuki_短评</div>
+              <div class="comment-text">《十字门》里工人填表那段，我每天过关也要填，看到的时候愣了一下。</div>
+            </div>
+          </div>
+          <div class="comment-item">
+            <div class="comment-avatar">D</div>
+            <div class="comment-body">
+              <div class="comment-user">David_老澳门</div>
+              <div class="comment-text">《荔枝碗往事》里船厂棚屋拆掉的那两间，我进去过。片子拍的时候已经拆了，用的是旧素材。</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 9. 相关资讯 -->
+      <section class="section" id="news">
+        <div class="section-header">
+          <h2>近期资讯</h2>
+        </div>
+        <div class="news-list">
+          <div class="news-item">
+            <span class="news-date">2026-11-08</span>
+            <div class="news-content">
+              <h4>《妈阁夜雨》导演剪辑版上线，新增 23 分钟庙内场景</h4>
+              <p class="news-summary">流媒体平台同步放出导演劳嘉怡的 6 分钟映前导览，她提到新增片段中有一段 8 分钟无配乐镜头，现场声来自 9 月 28 日实拍。</p>
+            </div>
+          </div>
+          <div class="news-item">
+            <span class="news-date">2026-11-06</span>
+            <div class="news-content">
+              <h4>劳嘉怡专访：雨戏实拍与人工降雨的分界</h4>
+              <p class="news-summary">导演在访谈中确认，《妈阁夜雨》只有两场雨戏用了人工降雨，均在路环码头完成，时间为 2025 年 3 月。其余雨景为实拍，其中 4 场在 2025 年 5 月拍摄。</p>
+            </div>
+          </div>
+          <div class="news-item">
+            <span class="news-date">2026-11-05</span>
+            <div class="news-content">
+              <h4>「镜海回响」短片征集收到 47 份投稿</h4>
+              <p class="news-summary">主办方公布投稿统计：31 份以荔枝碗、沙梨头、新马路为拍摄地点，12 份为首次投稿者。评审结果 12 月 10 日公布。</p>
+            </div>
+          </div>
+          <div class="news-item">
+            <span class="news-date">2026-10-30</span>
+            <div class="news-content">
+              <h4>《澳门食住玩》第三季收官，氹仔老店成最后一集主角</h4>
+              <p class="news-summary">收官集走访三家店，其中猪扒包摊 1986 年开业、雪糕店 1992 年开业、咖啡室 2005 年开业。节目播出后，三家店周末排队时间增加约 15 分钟。</p>
+            </div>
+          </div>
+          <div class="news-item">
+            <span class="news-date">2026-10-25</span>
+            <div class="news-content">
+              <h4>《荔枝碗往事》放映，三位前船厂工人到场</h4>
+              <p class="news-summary">映后谈持续 50 分钟，其中一位工人展示 1968 年账本原件，记录了 12 艘渔船订单和 3 个月延期。导演称账本将捐给澳门档案馆。</p>
+            </div>
+          </div>
+          <div class="news-item">
+            <span class="news-date">2026-10-18</span>
+            <div class="news-content">
+              <h4>2026 澳门国际短片节入围名单公布，6 部澳门作品入围</h4>
+              <p class="news-summary">华语单元共 15 部入围，6 部为澳门导演作品，其中 3 部涉及跨境通勤。评审张叔平在发布会上提到剪辑点处理标准。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 10. 相关推荐 -->
+      <section class="section" id="recommendations">
+        <div class="section-header">
+          <h2>相关推荐</h2>
+        </div>
+        <div class="tag-cloud">
+          <a href="#featured" class="tag-link">妈阁庙取景电影</a>
+          <a href="#featured" class="tag-link">路环船厂纪录片</a>
+          <a href="#featured" class="tag-link">横琴通勤短片</a>
+          <a href="#featured" class="tag-link">劳嘉怡导演作品</a>
+          <a href="#featured" class="tag-link">2026 短片节入围</a>
+          <a href="#featured" class="tag-link">澳门食住玩探店</a>
+          <a href="#featured" class="tag-link">荔枝碗往事账本</a>
+          <a href="#featured" class="tag-link">十字门导演陈子谦</a>
+        </div>
+      </section>
+
+      <!-- 11. 补充板块：热门榜单 -->
+      <section class="section" id="ranking">
+        <div class="section-header">
+          <h2>映画热门榜单</h2>
+          <span style="font-size:0.75rem;color:var(--text-tertiary);">更新于 2026-11-08</span>
+        </div>
+        <div class="ranking-list">
+          <div class="ranking-item"><span class="ranking-num">1</span><span class="ranking-title">《妈阁夜雨》导演剪辑版</span><span class="ranking-score">8.2</span></div>
+          <div class="ranking-item"><span class="ranking-num">2</span><span class="ranking-title">《荔枝碗往事》</span><span class="ranking-score">7.9</span></div>
+          <div class="ranking-item"><span class="ranking-num">3</span><span class="ranking-title">《十字门》短片</span><span class="ranking-score">7.5</span></div>
+          <div class="ranking-item"><span class="ranking-num">4</span><span class="ranking-title">《澳门食住玩》第三季</span><span class="ranking-score">7.3</span></div>
+          <div class="ranking-item"><span class="ranking-num">5</span><span class="ranking-title">《夜雨》摄影指导专访</span><span class="ranking-score">—</span></div>
+        </div>
+      </section>
+    </main>
+
+    <!-- 右侧辅助栏 -->
+    <aside class="sidebar-right">
+      <div class="sidebar-card">
+        <h3>热榜条目</h3>
+        <ul class="sidebar-list">
+          <li><span>《妈阁夜雨》导演剪辑版</span><span class="hot-tag">↑2</span></li>
+          <li><span>《荔枝碗往事》</span><span class="hot-tag">新</span></li>
+          <li><span>《十字门》短片</span><span class="hot-tag">→</span></li>
+          <li><span>劳嘉怡专访</span><span class="hot-tag">↑1</span></li>
+          <li><span>《澳门食住玩》收官集</span><span class="hot-tag">↓2</span></li>
+        </ul>
+      </div>
+      <div class="sidebar-card">
+        <h3>更新流</h3>
+        <div class="update-feed">
+          <div class="update-feed-item">《妈阁夜雨》剪辑版上线<time>11-08</time></div>
+          <div class="update-feed-item">《十字门》映后谈实录<time>11-07</time></div>
+          <div class="update-feed-item">「镜海回响」投稿统计<time>11-05</time></div>
+          <div class="update-feed-item">剧情长片榜单更新<time>11-03</time></div>
+          <div class="update-feed-item">《食住玩》第三季收官<time>10-30</time></div>
+        </div>
+      </div>
+      <div class="sidebar-card">
+        <h3>投稿与互动</h3>
+        <ul class="sidebar-list">
+          <li><a href="#featured">短片征集入口</a></li>
+          <li><a href="#comments">发表评论</a></li>
+          <li><a href="#recommendations">作品推荐</a></li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+
+  <!-- 页脚 -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="logo-text">tk挠澳门映画vk</span>
+        <p class="footer-desc">覆盖 2025—2026 年澳门剧情长片、纪录片、短片与综艺内容，条目类型包括导演专访、影展入围、幕后花絮和取景地记录，更新节奏跟随首映与影展节点。</p>
+      </div>
+      <div class="footer-col">
+        <h4>内容</h4>
+        <ul>
+          <li><a href="#featured">剧情长片</a></li>
+          <li><a href="#featured">纪录片</a></li>
+          <li><a href="#featured">短片</a></li>
+          <li><a href="#featured">综艺</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>互动</h4>
+        <ul>
+          <li><a href="#comments">观众评论</a></li>
+          <li><a href="#recommendations">相关推荐</a></li>
+          <li><a href="#ranking">热门榜单</a></li>
+          <li><a href="#news">近期资讯</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>关于</h4>
+        <ul>
+          <li><a href="#overview">领域概览</a></li>
+          <li><a href="#guide">体验指南</a></li>
+          <li><a href="#faq">常见问答</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 tk挠澳门映画vk · 内容聚合示例</span>
+      <span>页面更新于 2026-11-08</span>
+    </div>
+  </footer>
+
+  <!-- 回到顶部 -->
+  <button class="back-to-top" id="backToTop" aria-label="回到顶部">↑</button>
+
+  <script>
+    (function() {
+      // 移动端菜单
+      const hamburger = document.getElementById('hamburgerBtn');
+      const mobileMenu = document.getElementById('mobileMenu');
+      hamburger.addEventListener('click', function() {
+        const isOpen = mobileMenu.classList.toggle('open');
+        hamburger.setAttribute('aria-expanded', isOpen);
+      });
+      // 点击菜单项后关闭
+      mobileMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.remove('open');
+          hamburger.setAttribute('aria-expanded', 'false');
+        });
+      });
+
+      // 搜索筛选（简化：按标题过滤卡片可见性）
+      const searchInput = document.getElementById('searchInput');
+      const searchBtn = document.getElementById('searchBtn');
+      const cards = document.querySelectorAll('.card');
+      const noResults = document.createElement('div');
+      noResults.className = 'no-results';
+      noResults.textContent = '没有找到匹配的条目';
+      const cardGrid = document.querySelector('.card-grid');
+      cardGrid.parentNode.insertBefore(noResults, cardGrid.nextSibling);
+
+      function filterCards() {
+        const query = searchInput.value.trim().toLowerCase();
+        let visibleCount = 0;
+        cards.forEach(card => {
+          const title = card.querySelector('.card-title')?.textContent.toLowerCase() || '';
+          const desc = card.querySelector('.card-desc')?.textContent.toLowerCase() || '';
+          const show = !query || title.includes(query) || desc.includes(query);
+          card.style.display = show ? '' : 'none';
+          if (show) visibleCount++;
+        });
+        noResults.style.display = (visibleCount === 0 && query) ? 'block' : 'none';
+      }
+
+      if (searchInput) {
+        searchInput.addEventListener('input', filterCards);
+        searchBtn.addEventListener('click', filterCards);
+      }
+
+      // 回到顶部
+      const backToTop = document.getElementById('backToTop');
+      window.addEventListener('scroll', function() {
+        backToTop.classList.toggle('visible', window.scrollY > 400);
+      });
+      backToTop.addEventListener('click', function() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+
+      // 频道高亮（简单基于滚动位置）
+      const sections = document.querySelectorAll('.section[id]');
+      const channelLinks = document.querySelectorAll('.channel-list a');
+      window.addEventListener('scroll', function() {
+        let currentId = '';
+        sections.forEach(section => {
+          const rect = section.getBoundingClientRect();
+          if (rect.top <= 150) currentId = section.id;
+        });
+        channelLinks.forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === '#' + currentId) link.classList.add('active');
+        });
+      });
+
+      // 搜索图标点击（移动端）
+      document.getElementById('searchToggle')?.addEventListener('click', function() {
+        const searchBox = document.querySelector('.search-box');
+        if (searchBox.style.display === 'flex') {
+          searchBox.style.display = 'none';
+        } else {
+          searchBox.style.display = 'flex';
+          searchBox.querySelector('input').focus();
+        }
+      });
+    })();
+  </script>
+
+  <!-- 结构化数据 -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "tk挠澳门映画vk",
+    "description": "澳门影视内容聚合，包含剧情长片、纪录片、短片、综艺及影展动态",
+    "inLanguage": "zh-CN"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "《妈阁夜雨》导演剪辑版和院线版差在哪里？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "剪辑版多出 23 分钟，集中在妈阁庙石阶对峙戏（约 8 分钟）和片尾独白（约 10 分钟），另有 5 分钟分散在路环码头场景。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "《十字门》短片在哪里能看到完整版？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "2026 年 11 月 15 日起在澳门影像资料馆线上平台提供 18 分钟版，比短片节放映的 22 分钟版少两段通勤空镜。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "“镜海回响”短片征集的结果什么时候公布？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "2026 年 12 月 10 日公布入围名单，共 47 份投稿中选出 12 份。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "《荔枝碗往事》里提到的 1968 年船厂订单是真的吗？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "片中出现的账本由其中一位受访工匠保存，记录了 1968 年 3 月接到 12 艘渔船订单、工期 8 个月、实际交付延期 3 个月。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "澳门国际短片节的评审张叔平给了《十字门》什么评价？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "在 10 月 18 日入围发布会上，张叔平提到《十字门》的剪辑点处理，原话是“剪辑点藏在动作里，观众注意不到切点”。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "《澳门食住玩》第三季收官集那三家店具体在哪？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "猪扒包摊在氹仔旧城区官也街与地堡街交界附近，1986 年开业；雪糕店在官也街主街，1992 年开业；咖啡室在路环码头对面，2005 年开业。"
+        }
+      }
+    ]
+  }
+  </script>
+</body>
+        </html>
